@@ -53,6 +53,30 @@
                 </exclusions>
             </dependency>
 
+            <dependency>
+                <groupId>org.eclipse.xtext</groupId>
+                <artifactId>org.eclipse.xtext.xbase</artifactId>
+                <version>${xtext.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.ow2.asm</groupId>
+                        <artifactId>asm</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.ow2.asm</groupId>
+                        <artifactId>asm-analysis</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.ow2.asm</groupId>
+                        <artifactId>asm-commons</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.ow2.asm</groupId>
+                        <artifactId>asm-tree</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
             <!-- Replace the xbase.lib guava dependency with a more recent one that does not conflict with Xatkit -->
             <!-- This dependency should only be used in metamodels which require advanced xcore generation features -->
             <!-- such as xtend lambdas -->
@@ -92,6 +116,9 @@
                             </language>
                             <language>
                                 <setup>org.eclipse.emf.codegen.ecore.xtext.GenModelSupport</setup>
+                            </language>
+                            <language>
+                                <setup>org.eclipse.xtext.xbase.XbaseStandaloneSetup</setup>
                             </language>
                             <language>
                                 <setup>org.eclipse.emf.ecore.xcore.XcoreStandaloneSetup</setup>
