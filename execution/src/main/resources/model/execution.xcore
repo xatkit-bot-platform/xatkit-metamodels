@@ -1,5 +1,5 @@
 @Ecore(nsURI="com.xatkit.execution")
-@GenModel(modelDirectory="/execution/src/main/java-gen", importerID="org.eclipse.emf.importer.ecore", complianceLevel="8.0")
+@GenModel(modelDirectory="/execution/src/main/java-gen", importerID="org.eclipse.emf.importer.ecore", complianceLevel="8.0", operationReflection="false")
 package com.xatkit.execution
 
 import com.xatkit.platform.ActionDefinition
@@ -11,6 +11,8 @@ import com.xatkit.common.Instruction
 import com.xatkit.common.Expression
 import com.xatkit.common.VariableDeclaration
 import com.xatkit.common.VariableAccess
+import org.eclipse.xtext.xbase.XBlockExpression
+
 
 class ExecutionModel {
     refers EventProviderDefinition[] eventProviderDefinitions
@@ -18,18 +20,18 @@ class ExecutionModel {
 	contains ImportDeclaration[] imports
 }
 
-class ExecutionRule {
+class ExecutionRule extends XBlockExpression {
     refers EventDefinition event
-    contains Instruction[] instructions
+    //contains Instruction[] instructions
 }
 
-class ActionInstance extends Expression {
-    refers ActionDefinition action
-    contains ParameterValue[] values
-    contains ActionInstance[] onError
-}
+//class ActionInstance extends Expression {
+//    refers ActionDefinition action
+//    contains ParameterValue[] values
+//    contains ActionInstance[] onError
+//}
 
-class ParameterValue {
-    refers Parameter parameter
-    contains Expression expression
-}
+//class ParameterValue {
+//    refers Parameter parameter
+//    contains Expression expression
+//}
