@@ -70,6 +70,13 @@
             <artifactId>guava</artifactId>
         </dependency>
 
+        <!-- XBase -->
+        
+        <dependency>
+            <groupId>org.eclipse.xtext</groupId>
+            <artifactId>org.eclipse.xtext.xbase</artifactId>
+        </dependency>
+
         <!-- Tests -->
 
         <dependency>
@@ -95,13 +102,14 @@
                             *;
                             scope=compile|runtime;
                             type=!pom;
-                            groupId=!${project.groupId}|fr.inria.atlanmod.commons|org.apache.logging.log4j;
+                            groupId=!${project.groupId}|fr.inria.atlanmod.commons|org.apache.logging.log4j|org.eclipse.xtext;
                             artifactId=!org.eclipse.emf.common|org.eclipse.emf.ecore
                         </Embed-Dependency>
                         <Require-Bundle>
                             com.xatkit.common;visibility:=reexport,
                             com.xatkit.intent;visibility:=reexport,
-                            org.eclipse.emf.ecore;visibility:=reexport
+                            org.eclipse.emf.ecore;visibility:=reexport,
+                            org.eclipse.xtext.xbase;visibility:=reexport
                         </Require-Bundle>
                     </instructions>
                 </configuration>
