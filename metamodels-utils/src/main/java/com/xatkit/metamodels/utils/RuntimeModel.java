@@ -18,7 +18,7 @@ public class RuntimeModel {
      * The {@code context} {@link Map} is immutable: execution models are not allowed to put/remove information from it
      * (it is filled by the intent recognition provider and should provide consistent information to all the actions).
      */
-    protected Map<String, String> context;
+    protected Map<String, Map<String, Object>> context;
 
     /**
      * The {@link Map} containing the session information for the current user session.
@@ -49,7 +49,8 @@ public class RuntimeModel {
      * @param session the {@link Map} containing the session information for the current user session
      * @param config  the {@link Map} containing the Xatkit configuration information.
      */
-    public RuntimeModel(Map<String, String> context, Map<String, Object> session, Map<Object, Object> config) {
+    public RuntimeModel(Map<String, Map<String, Object>> context, Map<String, Object> session,
+                        Map<Object, Object> config) {
         this.context = Collections.unmodifiableMap(context);
         this.session = session;
         this.config = Collections.unmodifiableMap(config);
