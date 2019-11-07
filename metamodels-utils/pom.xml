@@ -16,6 +16,14 @@
 
     <name>Xatkit Metamodels Utility</name>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.xatkit</groupId>
+            <artifactId>intent</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
 
@@ -35,6 +43,7 @@
                             groupId=!${project.groupId}|fr.inria.atlanmod.commons|org.eclipse.emf|org.apache.logging.log4j
                         </Embed-Dependency>
                         <Require-Bundle>
+                            com.xatkit.intent;visibility:=reexport
                         </Require-Bundle>
                     </instructions>
                 </configuration>

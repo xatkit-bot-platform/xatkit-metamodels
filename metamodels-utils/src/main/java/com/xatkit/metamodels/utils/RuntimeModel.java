@@ -1,5 +1,8 @@
 package com.xatkit.metamodels.utils;
 
+import com.xatkit.intent.EventInstance;
+import com.xatkit.intent.RecognizedIntent;
+
 import java.util.Collections;
 import java.util.Map;
 
@@ -36,23 +39,43 @@ public class RuntimeModel {
     protected Map<Object, Object> config;
 
     /**
+     * The {@link RecognizedIntent} that triggered the executed execution rule.
+     * <p>
+     * This field is set to {@code null} if the execution rule has been triggered by an event.
+     */
+    protected RecognizedIntent intent = null;
+
+    /**
+     * The {@link EventInstance} that triggered the executed execution rule.
+     * <p>
+     * This field is never {@code null}: if the rule has been triggered by a {@link RecognizedIntent} the {@code
+     * event} field will be equal to the {@code intent} one.
+     */
+    protected EventInstance event;
+
+    /**
      * Constructs an empty {@link RuntimeModel}.
      */
     public RuntimeModel() {
-        this(Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap());
+        this(Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap(), null);
     }
 
     /**
      * Constructs a {@link RuntimeModel} from the provided {@code context}, {@code session}, and {@code config}.
      *
-     * @param context the {@link Map} containing the context information
-     * @param session the {@link Map} containing the session information for the current user session
-     * @param config  the {@link Map} containing the Xatkit configuration information.
+     * @param context       the {@link Map} containing the context information
+     * @param session       the {@link Map} containing the session information for the current user session
+     * @param config        the {@link Map} containing the Xatkit configuration information
+     * @param eventInstance the {@link EventInstance} that triggered the execution rule
      */
     public RuntimeModel(Map<String, Map<String, Object>> context, Map<String, Object> session,
-                        Map<Object, Object> config) {
+                        Map<Object, Object> config, EventInstance eventInstance) {
         this.context = Collections.unmodifiableMap(context);
         this.session = session;
         this.config = Collections.unmodifiableMap(config);
+        if (eventInstance instanceof RecognizedIntent) {
+            intent = (RecognizedIntent) eventInstance;
+        }
+        event = eventInstance;
     }
 }
