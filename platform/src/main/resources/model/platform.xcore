@@ -5,6 +5,7 @@ package com.xatkit.platform
 import com.xatkit.intent.EventDefinition
 import com.xatkit.common.PlatformImportDeclaration
 import com.xatkit.intent.Context
+import org.eclipse.xtext.common.types.JvmTypeReference
 
 class PlatformDefinition {
     String name
@@ -57,8 +58,10 @@ class InputProviderDefinition extends EventProviderDefinition {
 class ActionDefinition {
 	String name
 	contains Parameter[] parameters
+	contains JvmTypeReference returnType
 }
 
 class Parameter {
     String key
+    contains JvmTypeReference ^type
 }
