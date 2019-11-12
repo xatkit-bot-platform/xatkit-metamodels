@@ -52,6 +52,8 @@ class ContextParameter {
 }
 
 class EventInstance {
+    // store the triggeredBy information as a String, we can't import the Platform metamodel from here
+    String triggeredBy 
     refers EventDefinition definition
     contains ContextInstance[] outContextInstances
     op ContextInstance getOutContextInstance(String contextInstanceName) {

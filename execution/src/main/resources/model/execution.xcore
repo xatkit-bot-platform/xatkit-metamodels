@@ -2,6 +2,7 @@
 @GenModel(modelDirectory="/execution/src/main/java-gen", importerID="org.eclipse.emf.importer.ecore", complianceLevel="8.0", operationReflection="false")
 package com.xatkit.execution
 
+import com.xatkit.platform.PlatformDefinition
 import com.xatkit.platform.EventProviderDefinition
 import com.xatkit.intent.EventDefinition
 import com.xatkit.common.ImportDeclaration
@@ -16,4 +17,5 @@ class ExecutionModel {
 
 class ExecutionRule extends XBlockExpression {
     refers EventDefinition event
+    refers PlatformDefinition fromPlatform
 }
