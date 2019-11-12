@@ -12,6 +12,8 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 
 - *Platform* metamodel now support types for *Action* parameters and *Action* return types. Types are optional, and must refer to a JVM type (e.g. a type loaded from the classpath).
 - Added class *RuntimeModel* in *metamodels-utils*, that represents a runtime-level instance of an execution rule. This class is used by the languages' JVM inferrers to compute accessible attributes (*context*, *session*, ...), and should not be instantiated by client code.
+- Add attribute `EventInstance#triggeredFrom`  in intent metamodel to store the trace of the platform that triggered an event. This attribute is a *String*, reference to the platform metamodel are not possible in the intent one.
+- Add attribute `ExecutionRule#fromPlatform` in execution metamodel to store the *PlatformDefinition clause* (i.e. the platform that have created the event). This attribute allows to filter intents/events based on their provenance, allowing to match the same event from different platforms in multi-messaging platform bots.
 
 ### Changed
 
