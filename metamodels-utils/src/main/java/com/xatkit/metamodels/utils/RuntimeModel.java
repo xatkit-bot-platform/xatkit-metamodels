@@ -78,4 +78,30 @@ public class RuntimeModel {
         }
         event = eventInstance;
     }
+
+    /**
+     * Sets the {@link Map} containing session information for the current user session.
+     * <p>
+     * This method allows to update the {@link RuntimeModel} when the session changes within the same execution rule.
+     * This is for example the case with messaging actions, that need to create a session associated to the targeted
+     * channel.
+     * An example of such behavior:
+     * <pre>
+     * {@code
+     * on GithubEvent do
+     *  SlackPlatform.PostMessage("text", "channel")
+     * }
+     * </pre>
+     * The rule session is created from the GithubEvent, but another session is created to invoke the PostMessage
+     * action. To store information in this new session using {@code session.put} we need to update the
+     * {@link RuntimeModel}'s session {@link Map} first.
+     * <p>
+     * <b>Note</b>: changing the session discards the previous one, meaning that there is no way to call
+     * {@code session.put} and {@code session.get} on the previous session {@link Map}.
+     *
+     * @param session the {@link Map} containing the session information for the current user session
+     */
+    public void setSession(Map<String, Object> session) {
+        this.session = session;
+    }
 }
