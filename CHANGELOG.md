@@ -8,6 +8,8 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 
 ## Unreleased
 
+## [2.0.0] - 2019-12-01
+
 ### Added
 
 - *Platform* metamodel now support types for *Action* parameters and *Action* return types. Types are optional, and must refer to a JVM type (e.g. a type loaded from the classpath).
