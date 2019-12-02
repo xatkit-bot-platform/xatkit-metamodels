@@ -23,7 +23,7 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 
 ### Removed
 
-- The ad-hoc expression language defined in the *Common* metamodel has been removed, and replaced by the Xbase integration in the *Execution* and *Platform* metamodels. **This change breaks the public API**: execution models integrating the *common expression language* won't work properly anymore.
+- The ad hoc expression language defined in the *Common* metamodel has been removed, and replaced by the Xbase integration in the *Execution* and *Platform* metamodels. **This change breaks the public API**: execution models integrating the *common expression language* won't work properly anymore.
 
 ## [1.0.0] - 2019-10-10 
 
