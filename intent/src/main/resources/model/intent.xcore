@@ -80,7 +80,7 @@ class ContextInstance {
 class ContextParameterValue {
     container ContextInstance contextInstance opposite values
     refers ContextParameter contextParameter
-    String value
+    Object value
 }
 
 abstract class EntityDefinitionReference {

@@ -8,6 +8,10 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 
 ## Unreleased
 
+### Changed
+
+- Changed type of `ContextParameterValue#value` to `Object` (previously `String`). This allows to store complex values returned by the *Intent Recognition Provider* (e.g. DialogFlow's nested *structs* for composite entities). **This change breaks the public API**.
+
 ## [2.0.0] - 2019-12-01
 
 ### Added
