@@ -43,7 +43,7 @@ public class RuntimeModel {
      * <p>
      * This field is set to {@code null} if the execution rule has been triggered by an event.
      */
-    protected RecognizedIntent intent = null;
+    protected IntentWrapper intent = null;
 
     /**
      * The {@link EventInstance} that triggered the executed execution rule.
@@ -51,7 +51,7 @@ public class RuntimeModel {
      * This field is never {@code null}: if the rule has been triggered by a {@link RecognizedIntent} the {@code
      * event} field will be equal to the {@code intent} one.
      */
-    protected EventInstance event;
+    protected EventWrapper event;
 
     /**
      * Constructs an empty {@link RuntimeModel}.
@@ -74,9 +74,9 @@ public class RuntimeModel {
         this.session = session;
         this.config = Collections.unmodifiableMap(config);
         if (eventInstance instanceof RecognizedIntent) {
-            intent = (RecognizedIntent) eventInstance;
+            intent = new IntentWrapper((RecognizedIntent) eventInstance);
         }
-        event = eventInstance;
+        event = new EventWrapper(eventInstance);
     }
 
     /**
