@@ -24,11 +24,7 @@ class EventDefinition {
 }
 
 class IntentDefinition extends EventDefinition {
-    refers IntentDefinition follows opposite followedBy
-    refers IntentDefinition[] followedBy opposite follows
-    contains Context[] inContexts
     String[] trainingSentences
-    String[] defaultAnswers
 }
 
 class Context {
