@@ -7,15 +7,25 @@ import com.xatkit.platform.EventProviderDefinition
 import com.xatkit.intent.EventDefinition
 import com.xatkit.common.ImportDeclaration
 import org.eclipse.xtext.xbase.XBlockExpression
+import org.eclipse.xtext.xbase.XExpression
 
 
 class ExecutionModel {
     refers EventProviderDefinition[] eventProviderDefinitions
-	contains ExecutionRule[] executionRules
 	contains ImportDeclaration[] imports
+	contains State[] states
 }
 
-class ExecutionRule extends XBlockExpression {
-    refers EventDefinition event
-    refers PlatformDefinition fromPlatform
+class State {
+	String name
+	contains XExpression body
+	contains XExpression fallback
+	contains Transition[] transitions
+}
+
+class Transition {
+	contains XExpression condition
+	boolean isWildcard
+	refers State state
+	boolean isEndOfPath
 }
