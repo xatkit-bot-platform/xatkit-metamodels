@@ -21,11 +21,8 @@
         <eclipse.text.version>3.5.101</eclipse.text.version>
         <guava.version>20.0</guava.version>
         <!-- Plugin versions -->
-        <xtext-maven-plugin.version>2.15.0</xtext-maven-plugin.version>
-        <!-- Downgrade the codegen version to 1.2.0. For whatever reason xtext-maven-plugin -->
-        <!-- fails with 1.4.0 -->
-        <!-- Related issues: https://github.com/eclipse/xtext/issues/1233 -->
-        <emf.codegen.ecore.xtext.version>1.2.0</emf.codegen.ecore.xtext.version>
+        <xtext-maven-plugin.version>2.22.0</xtext-maven-plugin.version>
+        <emf.codegen.ecore.xtext.version>1.4.0</emf.codegen.ecore.xtext.version>
     </properties>
 
     <modules>
