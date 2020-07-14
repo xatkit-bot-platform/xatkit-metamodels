@@ -2,30 +2,30 @@
 @GenModel(modelDirectory="/execution/src/main/java-gen", importerID="org.eclipse.emf.importer.ecore", complianceLevel="8.0", operationReflection="false")
 package com.xatkit.execution
 
-import com.xatkit.platform.PlatformDefinition
-import com.xatkit.platform.EventProviderDefinition
 import com.xatkit.intent.EventDefinition
-import com.xatkit.common.ImportDeclaration
-import org.eclipse.xtext.xbase.XBlockExpression
-import org.eclipse.xtext.xbase.XExpression
+
+import java.util.Map
+import java.util.function.BiConsumer
+import java.util.function.Predicate
 
 
 class ExecutionModel {
-    refers EventProviderDefinition[] eventProviderDefinitions
-	contains ImportDeclaration[] imports
+    //refers EventProviderDefinition[] eventProviderDefinitions
+	refers EventDefinition[] usedEvents
 	contains State[] states
 }
 
 class State {
 	String name
-	contains XExpression body
-	contains XExpression fallback
+	BiConsumer body
+	BiConsumer fallback
 	contains Transition[] transitions
 }
 
 class Transition {
-	contains XExpression condition
-	boolean isWildcard
+	Predicate condition
 	refers State state
-	boolean isEndOfPath
 }
+
+type BiConsumer wraps BiConsumer<Map<String, Map<String, String>>, Map<String, String>>
+type Predicate wraps Predicate<Object>
