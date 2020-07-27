@@ -35,6 +35,7 @@ class StateContext {
 	NlpContextMap nlpContext
 	SessionMap session
 	refers EventInstance eventInstance
+	String contextId
 }
 
 type ConfigurationMap wraps Map<Object, Object>
