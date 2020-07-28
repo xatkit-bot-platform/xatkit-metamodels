@@ -2,7 +2,6 @@
 @GenModel(modelDirectory="/intent/src/main/java-gen", importerID="org.eclipse.emf.importer.ecore", complianceLevel="8.0")
 package com.xatkit.intent
 
-
 class Library {
 	String name
 	contains CustomEntityDefinition[] customEntities
@@ -206,5 +205,3 @@ enum EntityType {
     LANGUAGE as "language" = 49
     URL as "url" = 50
 }
-
-

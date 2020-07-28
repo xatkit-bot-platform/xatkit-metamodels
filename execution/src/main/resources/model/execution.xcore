@@ -20,8 +20,8 @@ class ExecutionModel {
 
 class State {
 	String name
-	BiConsumer body
-	BiConsumer fallback
+	Consumer body
+	Consumer fallback
 	contains Transition[] transitions
 }
 
@@ -42,5 +42,5 @@ type ConfigurationMap wraps Map<Object, Object>
 type NlpContextMap wraps Map<String, Map<String, Object>>
 type SessionMap wraps Map<Object, Object>
 
-type BiConsumer wraps Consumer<StateContext>
+type Consumer wraps Consumer<StateContext>
 type Predicate wraps Predicate<StateContext>
