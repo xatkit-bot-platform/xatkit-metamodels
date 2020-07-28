@@ -13,6 +13,8 @@ import java.util.function.Predicate
 class ExecutionModel {
     //refers EventProviderDefinition[] eventProviderDefinitions
 	refers EventDefinition[] usedEvents
+	Platform[] usedPlatforms
+	Provider[] usedProviders
 	contains State[] states
 	refers State initState
 	refers State defaultFallbackState
@@ -44,3 +46,6 @@ type SessionMap wraps Map<Object, Object>
 
 type Consumer wraps Consumer<StateContext>
 type Predicate wraps Predicate<StateContext>
+
+type Platform wraps Object
+type Provider wraps Object
