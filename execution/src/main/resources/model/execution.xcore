@@ -40,6 +40,7 @@ class StateContext {
 	refers EventInstance eventInstance
 	String contextId
 	String origin
+	refers State state
 	op RecognizedIntent getIntent() {
 		if(eventInstance instanceof RecognizedIntent) {
 			return eventInstance as RecognizedIntent;
