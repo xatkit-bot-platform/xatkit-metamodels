@@ -39,6 +39,7 @@ class StateContext {
 	SessionMap session
 	refers EventInstance eventInstance
 	String contextId
+	String origin
 	op RecognizedIntent getIntent() {
 		if(eventInstance instanceof RecognizedIntent) {
 			return eventInstance as RecognizedIntent;
