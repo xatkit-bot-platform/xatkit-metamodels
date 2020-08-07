@@ -49,14 +49,6 @@
             <artifactId>org.eclipse.xtext.xbase.lib</artifactId>
         </dependency>
 
-        <!-- Xatkit Internal -->
-
-        <dependency>
-            <groupId>com.xatkit</groupId>
-            <artifactId>common</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
         <!-- Utils -->
         <!-- Required by xcore lambdas -->
         <dependency>
@@ -102,7 +94,6 @@
                             artifactId=!org.eclipse.emf.common|org.eclipse.emf.ecore
                         </Embed-Dependency>
                         <Require-Bundle>
-                            com.xatkit.common;visibility:=reexport,
                             org.eclipse.emf.ecore;visibility:=reexport,
                             org.eclipse.xtext.xbase;visibility:=reexport
                         </Require-Bundle>

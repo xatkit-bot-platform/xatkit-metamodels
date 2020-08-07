@@ -2,30 +2,62 @@
 @GenModel(modelDirectory="/execution/src/main/java-gen", importerID="org.eclipse.emf.importer.ecore", complianceLevel="8.0", operationReflection="false")
 package com.xatkit.execution
 
-import com.xatkit.platform.PlatformDefinition
-import com.xatkit.platform.EventProviderDefinition
 import com.xatkit.intent.EventDefinition
-import com.xatkit.common.ImportDeclaration
-import org.eclipse.xtext.xbase.XBlockExpression
-import org.eclipse.xtext.xbase.XExpression
+import com.xatkit.intent.EventInstance
+import com.xatkit.intent.RecognizedIntent
+
+import java.util.Map
+import java.util.function.Consumer
+import java.util.function.Predicate
 
 
 class ExecutionModel {
-    refers EventProviderDefinition[] eventProviderDefinitions
-	contains ImportDeclaration[] imports
+    //refers EventProviderDefinition[] eventProviderDefinitions
+	refers EventDefinition[] usedEvents
+	Platform[] usedPlatforms
+	Provider[] usedProviders
 	contains State[] states
+	refers State initState
+	refers State defaultFallbackState
 }
 
 class State {
 	String name
-	contains XExpression body
-	contains XExpression fallback
+	Consumer body
+	Consumer fallback
 	contains Transition[] transitions
 }
 
 class Transition {
-	contains XExpression condition
-	boolean isWildcard
+	Predicate condition
 	refers State state
-	boolean isEndOfPath
 }
+
+class StateContext {
+	ConfigurationMap configuration
+	NlpContextMap nlpContext
+	SessionMap session
+	refers EventInstance eventInstance
+	String contextId
+	String origin
+	refers State state
+	op RecognizedIntent getIntent() {
+		if(eventInstance instanceof RecognizedIntent) {
+			return eventInstance as RecognizedIntent;
+		}
+		return null;
+	}
+	op void merge(StateContext other) {
+		// Do nothing, subclasses can implement if a merge strategy is needed.
+	}
+}
+
+type ConfigurationMap wraps Map<Object, Object>
+type NlpContextMap wraps Map<String, Map<String, Object>>
+type SessionMap wraps Map<Object, Object>
+
+type Consumer wraps Consumer<StateContext>
+type Predicate wraps Predicate<StateContext>
+
+type Platform wraps Object
+type Provider wraps Object

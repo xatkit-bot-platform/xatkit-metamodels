@@ -32,12 +32,6 @@
             <version>${project.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.xatkit</groupId>
-            <artifactId>platform</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
         <!-- EMF -->
 
         <dependency>
@@ -53,13 +47,6 @@
         <dependency>
             <groupId>org.eclipse.emf</groupId>
             <artifactId>org.eclipse.emf.ecore.xcore.lib</artifactId>
-        </dependency>
-
-        <!-- XBase -->
-        
-        <dependency>
-            <groupId>org.eclipse.xtext</groupId>
-            <artifactId>org.eclipse.xtext.xbase</artifactId>
         </dependency>
 
         <!-- Tests -->
@@ -92,7 +79,6 @@
                         </Embed-Dependency>
                         <Require-Bundle>
                             com.xatkit.intent;visibility:=reexport,
-                            com.xatkit.platform;visibility:=reexport,
                             org.eclipse.emf.ecore;visibility:=reexport,
                             org.eclipse.xtext.xbase;visibility:=reexport
                         </Require-Bundle>

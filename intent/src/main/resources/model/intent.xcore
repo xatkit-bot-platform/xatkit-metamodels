@@ -2,7 +2,6 @@
 @GenModel(modelDirectory="/intent/src/main/java-gen", importerID="org.eclipse.emf.importer.ecore", complianceLevel="8.0")
 package com.xatkit.intent
 
-
 class Library {
 	String name
 	contains CustomEntityDefinition[] customEntities
@@ -56,6 +55,17 @@ class EventInstance {
         for(ContextInstance contextInstance : getOutContextInstances()) {
             if(contextInstance.getDefinition().getName().equals(contextInstanceName)) {
                 return contextInstance;
+            }
+        }
+        return null;
+    }
+    op Object getContextValue(String contextName, String parameterName) {
+        var contextInstance = getOutContextInstance(contextName);
+        if(contextInstance !== null) {
+            for(ContextParameterValue value : contextInstance.getValues()) {
+                if(value.getContextParameter().getName().equals(parameterName)) {
+                    return value.getValue();
+                }
             }
         }
         return null;
@@ -206,5 +216,3 @@ enum EntityType {
     LANGUAGE as "language" = 49
     URL as "url" = 50
 }
-
-
