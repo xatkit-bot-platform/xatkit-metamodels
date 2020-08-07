@@ -59,6 +59,17 @@ class EventInstance {
         }
         return null;
     }
+    op Object getContextValue(String contextName, String parameterName) {
+        var contextInstance = getOutContextInstance(contextName);
+        if(contextInstance !== null) {
+            for(ContextParameterValue value : contextInstance.getValues()) {
+                if(value.getContextParameter().getName().equals(parameterName)) {
+                    return value.getValue();
+                }
+            }
+        }
+        return null;
+    }
 }
 
 class RecognizedIntent extends EventInstance {
