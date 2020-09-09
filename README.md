@@ -7,4 +7,4 @@ This repository contains the Ecore metamodels used by the Xatkit framework:
 - `platform`: contains a set of classes to define Xatkit *platforms*, *action* signatures, and *intent/event* provider definitions.
 - `execution`: weaves concepts from `common`, `intent`, and `platform` into a bot specification. The metamodel offers constructs to specify *execution rules*.
 
-These metamodels are used by the [*Xatkit Runtime*](https://github.com/xatkit-bot-platform/xatkit-runtime) component as a pivot representation to receive intents/events and trigger actions. They are also the basis of the [*Xatkit Eclipse Plugins*](https://github.com/xatkit-bot-platform/xatkit-eclipse) that define a set of Eclipse editors to create and manipulate instances of the metamodels using a textual DSL.
+These metamodels are used by the [*Xatkit Runtime*](https://github.com/xatkit-bot-platform/xatkit-runtime) component as a pivot representation to receive intents/events and trigger actions. 
