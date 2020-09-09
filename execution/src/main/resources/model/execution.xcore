@@ -28,9 +28,16 @@ class State {
 	contains Transition[] transitions
 }
 
-class Transition {
-	Predicate condition
+abstract class Transition {
 	refers State state
+}
+
+class GuardedTransition extends Transition {
+	Predicate condition
+}
+
+class AutoTransition extends Transition {
+	
 }
 
 class StateContext {
