@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="intent" nsURI="com.xatkit.intent" nsPrefix="intent">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+    <details key="modelDirectory" value="/intent/src/main/java-gen"/>
+    <details key="importerID" value="org.eclipse.emf.importer.ecore"/>
+    <details key="complianceLevel" value="8.0"/>
+    <details key="basePackage" value="com.xatkit"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Library">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" eType="ecore:EDataType ../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="customEntities" upperBound="-1"
+        eType="#//CustomEntityDefinition" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eventDefinitions" upperBound="-1"
+        eType="#//EventDefinition" containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EventDefinition">
+    <eOperations name="getParameter" unique="false" eType="#//ContextParameter">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="&lt;%org.eclipse.emf.common.util.EList%>&lt;&lt;%com.xatkit.intent.ContextParameter%>> _parameters = this.getParameters();&#xA;for (final &lt;%com.xatkit.intent.ContextParameter%> parameter : _parameters)&#xA;{&#xA;&#x9;boolean _equals = parameter.getName().toLowerCase().equals(parameterName.toLowerCase());&#xA;&#x9;if (_equals)&#xA;&#x9;{&#xA;&#x9;&#x9;return parameter;&#xA;&#x9;}&#xA;}&#xA;return null;"/>
+      </eAnnotations>
+      <eParameters name="parameterName" unique="false" eType="ecore:EDataType ../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" eType="ecore:EDataType ../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//ContextParameter" containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntentDefinition" eSuperTypes="#//EventDefinition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="trainingSentences" unique="false"
+        upperBound="-1" eType="ecore:EDataType ../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContextParameter">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="class Context {&#xA;    String name&#xA;    int lifeSpan = &quot;5&quot;&#xA;    contains ContextParameter[] parameters&#xA;    op ContextParameter getContextParameter(String parameterName) {&#xA;        for(ContextParameter contextParameter : getParameters()) {&#xA;            if(contextParameter.getName().equals(parameterName)) {&#xA;                return contextParameter;&#xA;            }&#xA;        }&#xA;        return null;&#xA;    }&#xA;}"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" eType="ecore:EDataType ../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="textFragment" unique="false"
+        eType="ecore:EDataType ../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entity" eType="#//EntityDefinitionReference"
+        containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EventInstance">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="triggeredBy" unique="false"
+        eType="ecore:EDataType ../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definition" eType="#//EventDefinition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
+        eType="#//ContextParameterValue" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="platformData" unique="false"
+        eType="#//PlatformDataMap"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RecognizedIntent" eSuperTypes="#//EventInstance">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="matchedInput" unique="false"
+        eType="ecore:EDataType ../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="recognitionConfidence"
+        unique="false" eType="ecore:EDataType ../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nlpData" unique="false"
+        eType="#//NlpDataMap"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="NlpDataMap" instanceTypeName="java.util.Map&lt;java.lang.String, java.lang.Object>"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="PlatformDataMap" instanceTypeName="java.util.Map&lt;java.lang.String, java.lang.Object>"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ContextParameterValue">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="class ContextInstance {&#xA;    refers Context definition&#xA;    int lifespanCount&#xA;    contains ContextParameterValue[] values opposite contextInstance&#xA;}"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contextParameter" eType="#//ContextParameter"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false" eType="ecore:EDataType ../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EJavaObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EntityDefinitionReference" abstract="true">
+    <eOperations name="getReferredEntity" unique="false" eType="#//EntityDefinition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BaseEntityDefinitionReference" eSuperTypes="#//EntityDefinitionReference">
+    <eOperations name="getReferredEntity" unique="false" eType="#//EntityDefinition">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return this.getBaseEntity();"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseEntity" eType="#//BaseEntityDefinition"
+        containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CustomEntityDefinitionReference" eSuperTypes="#//EntityDefinitionReference">
+    <eOperations name="getReferredEntity" unique="false" eType="#//EntityDefinition">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return this.getCustomEntity();"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="customEntity" eType="#//CustomEntityDefinition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EntityDefinition" abstract="true">
+    <eOperations name="getName" unique="false" eType="ecore:EDataType ../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BaseEntityDefinition" eSuperTypes="#//EntityDefinition">
+    <eOperations name="getName" unique="false" eType="ecore:EDataType ../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return this.getEntityType().getLiteral();"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="entityType" unique="false"
+        eType="#//EntityType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CustomEntityDefinition" abstract="true"
+      eSuperTypes="#//EntityDefinition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" eType="ecore:EDataType ../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MappingEntityDefinition" eSuperTypes="#//CustomEntityDefinition">
+    <eOperations name="getEntryValues" unique="false" upperBound="-1" eType="ecore:EDataType ../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="final &lt;%org.eclipse.emf.common.util.BasicEList%>&lt;&lt;%java.lang.String%>> result = &lt;%org.eclipse.emf.ecore.xcore.lib.XcoreCollectionLiterals%>.&lt;&lt;%java.lang.String%>>newBasicEList();&#xA;final &lt;%java.util.function.Consumer%>&lt;&lt;%com.xatkit.intent.MappingEntityDefinitionEntry%>> _function = new &lt;%java.util.function.Consumer%>&lt;&lt;%com.xatkit.intent.MappingEntityDefinitionEntry%>>()&#xA;{&#xA;&#x9;public void accept(final &lt;%com.xatkit.intent.MappingEntityDefinitionEntry%> entry)&#xA;&#x9;{&#xA;&#x9;&#x9;result.add(entry.getReferenceValue());&#xA;&#x9;}&#xA;};&#xA;this.getEntries().forEach(_function);&#xA;final &lt;%java.util.function.Consumer%>&lt;&lt;%com.xatkit.intent.MappingEntityDefinitionEntry%>> _function_1 = new &lt;%java.util.function.Consumer%>&lt;&lt;%com.xatkit.intent.MappingEntityDefinitionEntry%>>()&#xA;{&#xA;&#x9;public void accept(final &lt;%com.xatkit.intent.MappingEntityDefinitionEntry%> entry)&#xA;&#x9;{&#xA;&#x9;&#x9;result.addAll(entry.getSynonyms());&#xA;&#x9;}&#xA;};&#xA;this.getEntries().forEach(_function_1);&#xA;return result;"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
+        eType="#//MappingEntityDefinitionEntry" containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MappingEntityDefinitionEntry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="referenceValue" unique="false"
+        eType="ecore:EDataType ../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="synonyms" unique="false"
+        upperBound="-1" eType="ecore:EDataType ../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompositeEntityDefinition" eSuperTypes="#//CustomEntityDefinition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
+        eType="#//CompositeEntityDefinitionEntry" containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompositeEntityDefinitionEntry">
+    <eOperations name="getEntities" unique="false" upperBound="-1" eType="#//EntityDefinition">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%com.xatkit.intent.TextFragment%>, &lt;%java.lang.Boolean%>> _function = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%com.xatkit.intent.TextFragment%>, &lt;%java.lang.Boolean%>>()&#xA;{&#xA;&#x9;public &lt;%java.lang.Boolean%> apply(final &lt;%com.xatkit.intent.TextFragment%> fragment)&#xA;&#x9;{&#xA;&#x9;&#x9;return &lt;%java.lang.Boolean%>.valueOf((fragment instanceof &lt;%com.xatkit.intent.EntityTextFragment%>));&#xA;&#x9;}&#xA;};&#xA;final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%com.xatkit.intent.TextFragment%>, &lt;%com.xatkit.intent.EntityDefinition%>> _function_1 = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%com.xatkit.intent.TextFragment%>, &lt;%com.xatkit.intent.EntityDefinition%>>()&#xA;{&#xA;&#x9;public &lt;%com.xatkit.intent.EntityDefinition%> apply(final &lt;%com.xatkit.intent.TextFragment%> fragment)&#xA;&#x9;{&#xA;&#x9;&#x9;return ((&lt;%com.xatkit.intent.EntityTextFragment%>) fragment).getEntityReference().getReferredEntity();&#xA;&#x9;}&#xA;};&#xA;return &lt;%org.eclipse.emf.common.util.ECollections%>.&lt;&lt;%com.xatkit.intent.EntityDefinition%>>asEList(((&lt;%com.xatkit.intent.EntityDefinition%>[])org.eclipse.xtext.xbase.lib.Conversions.unwrapArray(&lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%>.&lt;&lt;%com.xatkit.intent.TextFragment%>, &lt;%com.xatkit.intent.EntityDefinition%>>map(&lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%>.&lt;&lt;%com.xatkit.intent.TextFragment%>>filter(this.getFragments(), _function), _function_1), &lt;%com.xatkit.intent.EntityDefinition%>.class)));"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fragments" upperBound="-1"
+        eType="#//TextFragment" containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TextFragment" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EntityTextFragment" eSuperTypes="#//TextFragment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entityReference" eType="#//EntityDefinitionReference"
+        containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LiteralTextFragment" eSuperTypes="#//TextFragment">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false" eType="ecore:EDataType ../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EntityType">
+    <eLiterals name="ANY" literal="any"/>
+    <eLiterals name="DATE_TIME" value="1" literal="date-time"/>
+    <eLiterals name="DATE" value="2" literal="date"/>
+    <eLiterals name="DATE_PERIOD" value="3" literal="date-period"/>
+    <eLiterals name="TIME" value="4" literal="time"/>
+    <eLiterals name="TIME_PERIOD" value="5" literal="time-period"/>
+    <eLiterals name="NUMBER" value="6" literal="number"/>
+    <eLiterals name="CARDINAL" value="7" literal="cardinal"/>
+    <eLiterals name="ORDINAL" value="8" literal="ordinal"/>
+    <eLiterals name="INTEGER" value="9" literal="integer"/>
+    <eLiterals name="NUMBER_SEQUENCE" value="10" literal="number-sequence"/>
+    <eLiterals name="FLIGHT_NUMBER" value="11" literal="flight-number"/>
+    <eLiterals name="UNIT_AREA" value="12" literal="unit-area"/>
+    <eLiterals name="UNIT_CURRENCY" value="13" literal="unit-currency"/>
+    <eLiterals name="UNIT_LENGTH" value="14" literal="unit-length"/>
+    <eLiterals name="UNIT_SPEED" value="15" literal="unit-speed"/>
+    <eLiterals name="UNIT_VOLUME" value="16" literal="unit-volume"/>
+    <eLiterals name="UNIT_WEIGHT" value="17" literal="unit-weight"/>
+    <eLiterals name="UNIT_INFORMATION" value="18" literal="unit-information"/>
+    <eLiterals name="PERCENTAGE" value="19" literal="percentage"/>
+    <eLiterals name="TEMPERATURE" value="20" literal="temperature"/>
+    <eLiterals name="DURATION" value="21" literal="duration"/>
+    <eLiterals name="AGE" value="22" literal="age"/>
+    <eLiterals name="ADDRESS" value="23" literal="address"/>
+    <eLiterals name="STREET_ADDRESS" value="24" literal="street-address"/>
+    <eLiterals name="ZIP_CODE" value="25" literal="zip-code"/>
+    <eLiterals name="CAPITAL" value="26" literal="capital"/>
+    <eLiterals name="COUNTRY" value="27" literal="country"/>
+    <eLiterals name="COUNTRY_CODE" value="28" literal="country-code"/>
+    <eLiterals name="CITY" value="29" literal="city"/>
+    <eLiterals name="STATE" value="30" literal="state"/>
+    <eLiterals name="CITY_US" value="31" literal="city-us"/>
+    <eLiterals name="STATE_US" value="32" literal="state-us"/>
+    <eLiterals name="COUNTY_US" value="33" literal="county-us"/>
+    <eLiterals name="CITY_GB" value="34" literal="city-gb"/>
+    <eLiterals name="STATE_GB" value="35" literal="state-gb"/>
+    <eLiterals name="COUNTY_GB" value="36" literal="county-gb"/>
+    <eLiterals name="PLACE_ATTRACTION_US" value="37" literal="place-attraction-us"/>
+    <eLiterals name="PLACE_ATTRACTION_GB" value="38" literal="place-attraction-gb"/>
+    <eLiterals name="PLACE_ATTRACTION" value="39" literal="place-attraction"/>
+    <eLiterals name="AIRPORT" value="40" literal="airport"/>
+    <eLiterals name="LOCATION" value="41" literal="location"/>
+    <eLiterals name="EMAIL" value="42" literal="email"/>
+    <eLiterals name="PHONE_NUMBER" value="43" literal="phone-number"/>
+    <eLiterals name="GIVEN_NAME" value="44" literal="given-name"/>
+    <eLiterals name="LAST_NAME" value="45" literal="last-name"/>
+    <eLiterals name="MUSIC_ARTIST" value="46" literal="music-artist"/>
+    <eLiterals name="MUSIC_GENRE" value="47" literal="music-genre"/>
+    <eLiterals name="COLOR" value="48" literal="color"/>
+    <eLiterals name="LANGUAGE" value="49" literal="language"/>
+    <eLiterals name="URL" value="50" literal="url"/>
+  </eClassifiers>
+</ecore:EPackage>

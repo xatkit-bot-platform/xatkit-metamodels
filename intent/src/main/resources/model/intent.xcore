@@ -2,6 +2,8 @@
 @GenModel(modelDirectory="/intent/src/main/java-gen", importerID="org.eclipse.emf.importer.ecore", complianceLevel="8.0")
 package com.xatkit.intent
 
+import java.util.Map
+
 class Library {
 	String name
 	contains CustomEntityDefinition[] customEntities
@@ -10,34 +12,11 @@ class Library {
 
 class EventDefinition {
     String name
-    contains Context[] outContexts
-    op Context getOutContext(String contextName) {
-        for(Context context : getOutContexts()) {
-            // not case-sensitive comparison should be put in the documentation
-            if(context.getName().toLowerCase().equals(contextName.toLowerCase())) {
-                return context;
-            }
-        }
-        return null;
-    }
+    contains ContextParameter[] parameters
 }
 
 class IntentDefinition extends EventDefinition {
     String[] trainingSentences
-}
-
-class Context {
-    String name
-    int lifeSpan = "5"
-    contains ContextParameter[] parameters
-    op ContextParameter getContextParameter(String parameterName) {
-        for(ContextParameter contextParameter : getParameters()) {
-            if(contextParameter.getName().equals(parameterName)) {
-                return contextParameter;
-            }
-        }
-        return null;
-    }
 }
 
 class ContextParameter {
@@ -50,41 +29,17 @@ class EventInstance {
     // store the triggeredBy information as a String, we can't import the Platform metamodel from here
     String triggeredBy 
     refers EventDefinition definition
-    contains ContextInstance[] outContextInstances
-    op ContextInstance getOutContextInstance(String contextInstanceName) {
-        for(ContextInstance contextInstance : getOutContextInstances()) {
-            if(contextInstance.getDefinition().getName().equals(contextInstanceName)) {
-                return contextInstance;
-            }
-        }
-        return null;
-    }
-    op Object getContextValue(String contextName, String parameterName) {
-        var contextInstance = getOutContextInstance(contextName);
-        if(contextInstance !== null) {
-            for(ContextParameterValue value : contextInstance.getValues()) {
-                if(value.getContextParameter().getName().equals(parameterName)) {
-                    return value.getValue();
-                }
-            }
-        }
-        return null;
-    }
+    contains ContextParameterValue[] values
+    PlatformDataMap platformData
 }
 
 class RecognizedIntent extends EventInstance {
     String matchedInput
     float recognitionConfidence
-}
-
-class ContextInstance {
-    refers Context definition
-    int lifespanCount
-    contains ContextParameterValue[] values opposite contextInstance
+    NlpDataMap nlpData
 }
 
 class ContextParameterValue {
-    container ContextInstance contextInstance opposite values
     refers ContextParameter contextParameter
     Object value
 }
@@ -95,16 +50,10 @@ abstract class EntityDefinitionReference {
 
 class BaseEntityDefinitionReference extends EntityDefinitionReference {
     contains BaseEntityDefinition baseEntity
-    op EntityDefinition getReferredEntity() {
-        return baseEntity;
-    }
 }
 
 class CustomEntityDefinitionReference extends EntityDefinitionReference {
     refers CustomEntityDefinition customEntity
-    op EntityDefinition getReferredEntity() {
-        return customEntity;
-    }
 }
 
 abstract class EntityDefinition {
@@ -114,9 +63,6 @@ abstract class EntityDefinition {
 
 class BaseEntityDefinition extends EntityDefinition {
     EntityType entityType
-    op String getName() {
-        return entityType.getLiteral()
-    }
 }
 
 
@@ -126,12 +72,6 @@ abstract class CustomEntityDefinition extends EntityDefinition {
 
 class MappingEntityDefinition extends CustomEntityDefinition {
     contains MappingEntityDefinitionEntry[] entries
-    op String[] getEntryValues() {
-    	val result = newBasicEList()
-    	entries.forEach[entry | result.add(entry.referenceValue)]
-    	entries.forEach[entry | result.addAll(entry.synonyms)]
-        return result
-    }
 }
 
 class MappingEntityDefinitionEntry {
@@ -145,10 +85,6 @@ class CompositeEntityDefinition extends CustomEntityDefinition {
 
 class CompositeEntityDefinitionEntry {
     contains TextFragment[] fragments
-    op EntityDefinition[] getEntities() {
-        fragments.filter[fragment | fragment instanceof EntityTextFragment]
-        .map[fragment | (fragment as EntityTextFragment).entityReference.getReferredEntity()].asEList()
-    }
 }
 
 abstract class TextFragment {
@@ -162,6 +98,10 @@ class EntityTextFragment extends TextFragment {
 class LiteralTextFragment extends TextFragment {
     String value
 }
+
+type NlpDataMap wraps Map<String, Object>
+
+type PlatformDataMap wraps Map<String, Object>
 
 enum EntityType {
     ANY as "any" = 0

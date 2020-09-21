@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/intent/src/main/java-gen" modelPluginID="intent"
+    runtimeJar="true" modelName="Intent" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    testsDirectory="" booleanFlagsField="eFlags" booleanFlagsReservedBits="8" importerID="org.eclipse.emf.importer.ecore"
+    containmentProxies="true" complianceLevel="8.0" language="en" usedGenPackages="../../../../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"
+    operationReflection="true" importOrganizing="true" decoration="Live" oSGiCompatible="true"
+    eclipsePlatformVersion="Juno" autoResizeProperties="true" autoExpandProperties="10"
+    findAction="true" expandAllAction="true" collapseAllAction="true" revertAction="true">
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.xsd.ecore.exporter">
+    <genAnnotations source="selectedPackages">
+      <details key="http://www.eclipse.org/emf/2002/Ecore" value="Ecore.xsd"/>
+    </genAnnotations>
+    <details key="directoryURI" value="."/>
+  </genAnnotations>
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.xsd.ecore.exporter.xmi">
+    <genAnnotations source="selectedPackages">
+      <details key="http://www.eclipse.org/emf/2002/Ecore" value="EcoreXMI.xsd"/>
+    </genAnnotations>
+    <details key="directoryURI" value="."/>
+  </genAnnotations>
+  <foreignModel>intent.xcore</foreignModel>
+  <modelPluginVariables>org.eclipse.xtext.xbase.lib</modelPluginVariables>
+  <modelPluginVariables>org.eclipse.emf.ecore.xcore.lib</modelPluginVariables>
+  <genPackages prefix="Intent" basePackage="com.xatkit" disposableProviderFactory="true"
+      ecorePackage="intent.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="intent.ecore#//EntityType">
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/ANY"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/DATE_TIME"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/DATE"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/DATE_PERIOD"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/TIME"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/TIME_PERIOD"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/NUMBER"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/CARDINAL"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/ORDINAL"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/INTEGER"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/NUMBER_SEQUENCE"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/FLIGHT_NUMBER"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/UNIT_AREA"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/UNIT_CURRENCY"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/UNIT_LENGTH"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/UNIT_SPEED"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/UNIT_VOLUME"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/UNIT_WEIGHT"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/UNIT_INFORMATION"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/PERCENTAGE"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/TEMPERATURE"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/DURATION"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/AGE"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/ADDRESS"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/STREET_ADDRESS"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/ZIP_CODE"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/CAPITAL"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/COUNTRY"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/COUNTRY_CODE"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/CITY"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/STATE"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/CITY_US"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/STATE_US"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/COUNTY_US"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/CITY_GB"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/STATE_GB"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/COUNTY_GB"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/PLACE_ATTRACTION_US"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/PLACE_ATTRACTION_GB"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/PLACE_ATTRACTION"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/AIRPORT"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/LOCATION"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/EMAIL"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/PHONE_NUMBER"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/GIVEN_NAME"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/LAST_NAME"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/MUSIC_ARTIST"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/MUSIC_GENRE"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/COLOR"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/LANGUAGE"/>
+      <genEnumLiterals ecoreEnumLiteral="intent.ecore#//EntityType/URL"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="intent.ecore#//NlpDataMap"/>
+    <genDataTypes ecoreDataType="intent.ecore#//PlatformDataMap"/>
+    <genClasses ecoreClass="intent.ecore#//Library">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intent.ecore#//Library/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intent.ecore#//Library/customEntities"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intent.ecore#//Library/eventDefinitions"/>
+    </genClasses>
+    <genClasses ecoreClass="intent.ecore#//EventDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intent.ecore#//EventDefinition/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intent.ecore#//EventDefinition/parameters"/>
+      <genOperations ecoreOperation="intent.ecore#//EventDefinition/getParameter"
+          body="&lt;%org.eclipse.emf.common.util.EList%>&lt;&lt;%com.xatkit.intent.ContextParameter%>> _parameters = this.getParameters();&#xA;for (final &lt;%com.xatkit.intent.ContextParameter%> parameter : _parameters)&#xA;{&#xA;&#x9;boolean _equals = parameter.getName().toLowerCase().equals(parameterName.toLowerCase());&#xA;&#x9;if (_equals)&#xA;&#x9;{&#xA;&#x9;&#x9;return parameter;&#xA;&#x9;}&#xA;}&#xA;return null;">
+        <genParameters ecoreParameter="intent.ecore#//EventDefinition/getParameter/parameterName"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="intent.ecore#//IntentDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intent.ecore#//IntentDefinition/trainingSentences"/>
+    </genClasses>
+    <genClasses ecoreClass="intent.ecore#//ContextParameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intent.ecore#//ContextParameter/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intent.ecore#//ContextParameter/textFragment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intent.ecore#//ContextParameter/entity"/>
+    </genClasses>
+    <genClasses ecoreClass="intent.ecore#//EventInstance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intent.ecore#//EventInstance/triggeredBy"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intent.ecore#//EventInstance/definition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intent.ecore#//EventInstance/values"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intent.ecore#//EventInstance/platformData"/>
+    </genClasses>
+    <genClasses ecoreClass="intent.ecore#//RecognizedIntent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intent.ecore#//RecognizedIntent/matchedInput"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intent.ecore#//RecognizedIntent/recognitionConfidence"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intent.ecore#//RecognizedIntent/nlpData"/>
+    </genClasses>
+    <genClasses ecoreClass="intent.ecore#//ContextParameterValue">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intent.ecore#//ContextParameterValue/contextParameter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intent.ecore#//ContextParameterValue/value"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="intent.ecore#//EntityDefinitionReference">
+      <genOperations ecoreOperation="intent.ecore#//EntityDefinitionReference/getReferredEntity"/>
+    </genClasses>
+    <genClasses ecoreClass="intent.ecore#//BaseEntityDefinitionReference">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intent.ecore#//BaseEntityDefinitionReference/baseEntity"/>
+      <genOperations ecoreOperation="intent.ecore#//BaseEntityDefinitionReference/getReferredEntity"
+          body="return this.getBaseEntity();"/>
+    </genClasses>
+    <genClasses ecoreClass="intent.ecore#//CustomEntityDefinitionReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intent.ecore#//CustomEntityDefinitionReference/customEntity"/>
+      <genOperations ecoreOperation="intent.ecore#//CustomEntityDefinitionReference/getReferredEntity"
+          body="return this.getCustomEntity();"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="intent.ecore#//EntityDefinition">
+      <genOperations ecoreOperation="intent.ecore#//EntityDefinition/getName"/>
+    </genClasses>
+    <genClasses ecoreClass="intent.ecore#//BaseEntityDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intent.ecore#//BaseEntityDefinition/entityType"/>
+      <genOperations ecoreOperation="intent.ecore#//BaseEntityDefinition/getName"
+          body="return this.getEntityType().getLiteral();"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="intent.ecore#//CustomEntityDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intent.ecore#//CustomEntityDefinition/name"/>
+    </genClasses>
+    <genClasses ecoreClass="intent.ecore#//MappingEntityDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intent.ecore#//MappingEntityDefinition/entries"/>
+      <genOperations ecoreOperation="intent.ecore#//MappingEntityDefinition/getEntryValues"
+          body="final &lt;%org.eclipse.emf.common.util.BasicEList%>&lt;&lt;%java.lang.String%>> result = &lt;%org.eclipse.emf.ecore.xcore.lib.XcoreCollectionLiterals%>.&lt;&lt;%java.lang.String%>>newBasicEList();&#xA;final &lt;%java.util.function.Consumer%>&lt;&lt;%com.xatkit.intent.MappingEntityDefinitionEntry%>> _function = new &lt;%java.util.function.Consumer%>&lt;&lt;%com.xatkit.intent.MappingEntityDefinitionEntry%>>()&#xA;{&#xA;&#x9;public void accept(final &lt;%com.xatkit.intent.MappingEntityDefinitionEntry%> entry)&#xA;&#x9;{&#xA;&#x9;&#x9;result.add(entry.getReferenceValue());&#xA;&#x9;}&#xA;};&#xA;this.getEntries().forEach(_function);&#xA;final &lt;%java.util.function.Consumer%>&lt;&lt;%com.xatkit.intent.MappingEntityDefinitionEntry%>> _function_1 = new &lt;%java.util.function.Consumer%>&lt;&lt;%com.xatkit.intent.MappingEntityDefinitionEntry%>>()&#xA;{&#xA;&#x9;public void accept(final &lt;%com.xatkit.intent.MappingEntityDefinitionEntry%> entry)&#xA;&#x9;{&#xA;&#x9;&#x9;result.addAll(entry.getSynonyms());&#xA;&#x9;}&#xA;};&#xA;this.getEntries().forEach(_function_1);&#xA;return result;"/>
+    </genClasses>
+    <genClasses ecoreClass="intent.ecore#//MappingEntityDefinitionEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intent.ecore#//MappingEntityDefinitionEntry/referenceValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intent.ecore#//MappingEntityDefinitionEntry/synonyms"/>
+    </genClasses>
+    <genClasses ecoreClass="intent.ecore#//CompositeEntityDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intent.ecore#//CompositeEntityDefinition/entries"/>
+    </genClasses>
+    <genClasses ecoreClass="intent.ecore#//CompositeEntityDefinitionEntry">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intent.ecore#//CompositeEntityDefinitionEntry/fragments"/>
+      <genOperations ecoreOperation="intent.ecore#//CompositeEntityDefinitionEntry/getEntities"
+          body="final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%com.xatkit.intent.TextFragment%>, &lt;%java.lang.Boolean%>> _function = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%com.xatkit.intent.TextFragment%>, &lt;%java.lang.Boolean%>>()&#xA;{&#xA;&#x9;public &lt;%java.lang.Boolean%> apply(final &lt;%com.xatkit.intent.TextFragment%> fragment)&#xA;&#x9;{&#xA;&#x9;&#x9;return &lt;%java.lang.Boolean%>.valueOf((fragment instanceof &lt;%com.xatkit.intent.EntityTextFragment%>));&#xA;&#x9;}&#xA;};&#xA;final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%com.xatkit.intent.TextFragment%>, &lt;%com.xatkit.intent.EntityDefinition%>> _function_1 = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%com.xatkit.intent.TextFragment%>, &lt;%com.xatkit.intent.EntityDefinition%>>()&#xA;{&#xA;&#x9;public &lt;%com.xatkit.intent.EntityDefinition%> apply(final &lt;%com.xatkit.intent.TextFragment%> fragment)&#xA;&#x9;{&#xA;&#x9;&#x9;return ((&lt;%com.xatkit.intent.EntityTextFragment%>) fragment).getEntityReference().getReferredEntity();&#xA;&#x9;}&#xA;};&#xA;return &lt;%org.eclipse.emf.common.util.ECollections%>.&lt;&lt;%com.xatkit.intent.EntityDefinition%>>asEList(((&lt;%com.xatkit.intent.EntityDefinition%>[])org.eclipse.xtext.xbase.lib.Conversions.unwrapArray(&lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%>.&lt;&lt;%com.xatkit.intent.TextFragment%>, &lt;%com.xatkit.intent.EntityDefinition%>>map(&lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%>.&lt;&lt;%com.xatkit.intent.TextFragment%>>filter(this.getFragments(), _function), _function_1), &lt;%com.xatkit.intent.EntityDefinition%>.class)));"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="intent.ecore#//TextFragment"/>
+    <genClasses ecoreClass="intent.ecore#//EntityTextFragment">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intent.ecore#//EntityTextFragment/entityReference"/>
+    </genClasses>
+    <genClasses ecoreClass="intent.ecore#//LiteralTextFragment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intent.ecore#//LiteralTextFragment/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

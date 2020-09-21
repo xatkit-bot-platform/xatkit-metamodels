@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="execution" nsURI="com.xatkit.execution" nsPrefix="execution">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+    <details key="modelDirectory" value="/execution/src/main/java-gen"/>
+    <details key="importerID" value="org.eclipse.emf.importer.ecore"/>
+    <details key="complianceLevel" value="8.0"/>
+    <details key="operationReflection" value="false"/>
+    <details key="basePackage" value="com.xatkit"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="ExecutionModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="usedEvents" upperBound="-1"
+        eType="ecore:EClass ../../../../../intent/src/main/resources/model/intent.xcore#/EPackage/EventDefinition"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="usedPlatforms" unique="false"
+        upperBound="-1" eType="#//Platform"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="usedProviders" unique="false"
+        upperBound="-1" eType="#//Provider"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
+        eType="#//State" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initState" eType="#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultFallbackState" eType="#//State"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="State">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" eType="ecore:EDataType ../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" unique="false" eType="#//Consumer"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fallback" unique="false"
+        eType="#//Consumer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transitions" upperBound="-1"
+        eType="#//Transition" containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Transition" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="state" eType="#//State"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GuardedTransition" eSuperTypes="#//Transition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="condition" unique="false"
+        eType="#//Predicate"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AutoTransition" eSuperTypes="#//Transition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StateContext">
+    <eOperations name="getIntent" unique="false" eType="ecore:EClass ../../../../../intent/src/main/resources/model/intent.xcore#/EPackage/RecognizedIntent">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="&lt;%com.xatkit.intent.EventInstance%> _eventInstance = this.getEventInstance();&#xA;if ((_eventInstance instanceof &lt;%com.xatkit.intent.RecognizedIntent%>))&#xA;{&#xA;&#x9;&lt;%com.xatkit.intent.EventInstance%> _eventInstance_1 = this.getEventInstance();&#xA;&#x9;return ((&lt;%com.xatkit.intent.RecognizedIntent%>) _eventInstance_1);&#xA;}&#xA;return null;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="merge" unique="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value=""/>
+      </eAnnotations>
+      <eParameters name="other" unique="false" eType="#//StateContext"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="configuration" unique="false"
+        eType="#//ConfigurationMap"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="session" unique="false"
+        eType="#//SessionMap"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eventInstance" eType="ecore:EClass ../../../../../intent/src/main/resources/model/intent.xcore#/EPackage/EventInstance"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contextId" unique="false"
+        eType="ecore:EDataType ../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="origin" unique="false"
+        eType="ecore:EDataType ../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="state" eType="#//State"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="ConfigurationMap" instanceTypeName="java.util.Map&lt;java.lang.Object, java.lang.Object>"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="NlpContextMap" instanceTypeName="java.util.Map&lt;java.lang.String, java.util.Map&lt;java.lang.String, java.lang.Object>>"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="SessionMap" instanceTypeName="java.util.Map&lt;java.lang.Object, java.lang.Object>"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Consumer" instanceTypeName="java.util.function.Consumer&lt;com.xatkit.execution.StateContext>"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Predicate" instanceTypeName="java.util.function.Predicate&lt;com.xatkit.execution.StateContext>"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Platform" instanceClassName="java.lang.Object"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Provider" instanceClassName="java.lang.Object"/>
+</ecore:EPackage>
