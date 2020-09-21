@@ -4,11 +4,17 @@ package com.xatkit.execution.impl;
 
 import com.xatkit.execution.ExecutionModel;
 import com.xatkit.execution.ExecutionPackage;
+import com.xatkit.execution.GuardedTransition;
 import com.xatkit.execution.State;
 
 import com.xatkit.intent.EventDefinition;
 
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Spliterator;
+import java.util.Spliterators;
+import java.util.stream.StreamSupport;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -25,6 +31,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import static java.util.Objects.nonNull;
 
 /**
  * <!-- begin-user-doc -->
@@ -254,6 +261,23 @@ public class ExecutionModelImpl extends MinimalEObjectImpl.Container implements 
 		defaultFallbackState = newDefaultFallbackState;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ExecutionPackage.EXECUTION_MODEL__DEFAULT_FALLBACK_STATE, oldDefaultFallbackState, defaultFallbackState));
+	}
+	
+	/**
+	 * @NotGenerated
+	 */
+	@Override
+	public Set<EventDefinition> getAllAccessedEvents() {
+		Set<EventDefinition> result = new HashSet<>();
+		StreamSupport.stream(Spliterators.spliteratorUnknownSize(this.eAllContents(), Spliterator.ORDERED), false)
+			.filter(e -> e instanceof GuardedTransition)
+			.forEach(t -> {
+				EventDefinition eventDefinition = ((GuardedTransition) t).getAccessedEvent();
+				if(nonNull(eventDefinition)) {
+					result.add(eventDefinition);
+				}
+			});
+		return result;
 	}
 
 	/**

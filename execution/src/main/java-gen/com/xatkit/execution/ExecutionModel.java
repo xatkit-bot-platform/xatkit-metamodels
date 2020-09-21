@@ -4,6 +4,8 @@ package com.xatkit.execution;
 
 import com.xatkit.intent.EventDefinition;
 
+import java.util.Set;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -121,5 +123,11 @@ public interface ExecutionModel extends EObject {
 	 * @generated
 	 */
 	void setDefaultFallbackState(State value);
+	
+	/**
+	 * @NotGenerated
+	 * @return
+	 */
+	Set<EventDefinition> getAllAccessedEvents();
 
 } // ExecutionModel

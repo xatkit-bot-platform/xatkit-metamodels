@@ -2,13 +2,17 @@
  */
 package com.xatkit.execution.impl;
 
+import com.xatkit.execution.AutoTransition;
 import com.xatkit.execution.ExecutionPackage;
+import com.xatkit.execution.GuardedTransition;
 import com.xatkit.execution.State;
 import com.xatkit.execution.StateContext;
 import com.xatkit.execution.Transition;
+import com.xatkit.intent.IntentDefinition;
 
+import java.util.ArrayList;
 import java.util.Collection;
-
+import java.util.List;
 import java.util.function.Consumer;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -24,6 +28,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import static java.util.Objects.nonNull;
+
+import java.text.MessageFormat;
 
 /**
  * <!-- begin-user-doc -->
@@ -191,6 +198,41 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 			transitions = new EObjectContainmentEList<Transition>(Transition.class, this, ExecutionPackage.STATE__TRANSITIONS);
 		}
 		return transitions;
+	}
+	
+	/**
+	 * @NotGenerated
+	 */
+	@Override
+	public Collection<IntentDefinition> getAllAccessedIntents() {
+		List<IntentDefinition> result = new ArrayList<>();
+		for(Transition t : this.getTransitions()) {
+			if(t instanceof GuardedTransition) {
+				GuardedTransition guardedTransition = (GuardedTransition) t;
+				IntentDefinition intentDefinition = guardedTransition.getAccessedIntent();
+				if(nonNull(intentDefinition)) {
+					result.add(intentDefinition);
+				}
+			}
+		}
+		return result;
+	}
+	
+	/**
+	 * @NotGenerated
+	 */
+	@Override
+	public State getStateReachableWithWildcard() {
+		State result = null;
+		if(this.getTransitions().stream().anyMatch(t -> t instanceof AutoTransition)) {
+			if(this.getTransitions().size() > 1) {
+				throw new IllegalArgumentException(MessageFormat.format("The provided state {0} contains more than 1 " +
+                        "transition and at least one is a wildcard", this.getName()));
+			} else {
+				result = this.getTransitions().get(0).getState();
+			}
+		}
+		return result;
 	}
 
 	/**

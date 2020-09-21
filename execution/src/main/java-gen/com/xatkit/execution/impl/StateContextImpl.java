@@ -9,6 +9,7 @@ import com.xatkit.execution.StateContext;
 import com.xatkit.intent.EventInstance;
 import com.xatkit.intent.RecognizedIntent;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -125,6 +126,8 @@ public class StateContextImpl extends MinimalEObjectImpl.Container implements St
 	 */
 	protected StateContextImpl() {
 		super();
+		this.configuration = new HashMap<>();
+		this.session = new HashMap<>();
 	}
 
 	/**

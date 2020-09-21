@@ -5,7 +5,15 @@ package com.xatkit.execution.impl;
 import com.xatkit.execution.ExecutionPackage;
 import com.xatkit.execution.GuardedTransition;
 import com.xatkit.execution.StateContext;
+import com.xatkit.execution.predicate.ComposedPredicate;
+import com.xatkit.execution.predicate.IsEventDefinitionPredicate;
+import com.xatkit.execution.predicate.IsIntentDefinitionPredicate;
+import com.xatkit.intent.EventDefinition;
+import com.xatkit.intent.IntentDefinition;
 
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.function.Predicate;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -79,6 +87,64 @@ public class GuardedTransitionImpl extends TransitionImpl implements GuardedTran
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ExecutionPackage.GUARDED_TRANSITION__CONDITION, oldCondition, condition));
 	}
+	
+	/**
+	 * @NotGenerated
+	 */
+	@Override
+	public EventDefinition getAccessedEvent() {
+		Collection<EventDefinition> result = this.getAccessedEvents(this.getCondition());
+		if(result.isEmpty()) {
+			return null;
+		} else {
+			/*
+			 * TODO this method should probably return a collection to handle composed predicates
+			 * containing multiple Intent/Event accesses.
+			 */
+			return result.iterator().next();
+		}
+	}
+	
+	/**
+	 * @NotGenerated
+	 */
+	@Override
+	public IntentDefinition getAccessedIntent() {
+		EventDefinition accessedEvent = this.getAccessedEvent();
+		if(accessedEvent instanceof IntentDefinition) {
+			return (IntentDefinition) accessedEvent;
+		}
+		return null;
+	}
+	/**
+	 * @NotGenerated
+	 * @param predicate
+	 * @return
+	 */
+	private Collection<EventDefinition> getAccessedEvents(Predicate<StateContext> predicate) {
+        return this.getAccessedEvents(predicate, new HashSet<>());
+    }
+
+	/**
+	 * @NotGenerated
+	 * @param predicate
+	 * @param result
+	 * @return
+	 */
+    private Collection<EventDefinition> getAccessedEvents(Predicate<? super StateContext> predicate,
+                                                              Set<EventDefinition> result) {
+        if(predicate instanceof IsEventDefinitionPredicate) {
+            result.add(((IsEventDefinitionPredicate) predicate).getEventDefinition());
+        } else if(predicate instanceof IsIntentDefinitionPredicate) {
+            result.add(((IsIntentDefinitionPredicate) predicate).getIntentDefinition());
+        } else if(predicate instanceof ComposedPredicate) {
+            ComposedPredicate<? super StateContext> composedPredicate =
+                    (ComposedPredicate<? super StateContext>) predicate;
+            getAccessedEvents(composedPredicate.getP1(), result);
+            getAccessedEvents(composedPredicate.getP2(), result);
+        }
+        return result;
+    }
 
 	/**
 	 * <!-- begin-user-doc -->

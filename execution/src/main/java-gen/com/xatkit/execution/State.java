@@ -2,11 +2,13 @@
  */
 package com.xatkit.execution;
 
+import java.util.Collection;
 import java.util.function.Consumer;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
+
+import com.xatkit.intent.IntentDefinition;
 
 /**
  * <!-- begin-user-doc -->
@@ -105,5 +107,16 @@ public interface State extends EObject {
 	 * @generated
 	 */
 	EList<Transition> getTransitions();
+	
+	/**
+	 * @NotGenerated
+	 */
+	Collection<IntentDefinition> getAllAccessedIntents();
+	
+	/**
+	 * @NotGenerated
+	 * @return
+	 */
+	State getStateReachableWithWildcard();
 
 } // State

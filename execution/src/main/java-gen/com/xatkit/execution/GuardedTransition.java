@@ -4,6 +4,9 @@ package com.xatkit.execution;
 
 import java.util.function.Predicate;
 
+import com.xatkit.intent.EventDefinition;
+import com.xatkit.intent.IntentDefinition;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Guarded Transition</b></em>'.
@@ -43,4 +46,14 @@ public interface GuardedTransition extends Transition {
 	 */
 	void setCondition(Predicate<StateContext> value);
 
+	/**
+	 * @NotGenerated
+	 */
+	EventDefinition getAccessedEvent();
+	
+	/**
+	 * @NotGenerated
+	 */
+	IntentDefinition getAccessedIntent();
+	
 } // GuardedTransition
