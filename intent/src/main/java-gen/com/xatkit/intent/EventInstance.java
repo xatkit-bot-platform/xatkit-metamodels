@@ -83,6 +83,12 @@ public interface EventInstance extends EObject {
 	 * @generated
 	 */
 	EList<ContextParameterValue> getValues();
+	
+	/**
+	 * @NotGenerated
+	 * @return the value of the {@code parameterName} parameter, or {@code null} if it doesn't exist.
+	 */
+	Object getValue(String parameterName);
 
 	/**
 	 * Returns the value of the '<em><b>Platform Data</b></em>' attribute.

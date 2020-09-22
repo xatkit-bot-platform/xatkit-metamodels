@@ -186,6 +186,18 @@ public class EventInstanceImpl extends MinimalEObjectImpl.Container implements E
 		}
 		return values;
 	}
+	
+	/**
+	 * {@inheritDoc}
+	 * @NotGenerated
+	 */
+	@Override
+	public Object getValue(String parameterName) {
+		return this.getValues().stream()
+				.filter(parameter -> parameter.getContextParameter().getName().equals(parameterName))
+				.map(parameterValue -> parameterValue.getValue())
+				.findAny().orElse(null);
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
