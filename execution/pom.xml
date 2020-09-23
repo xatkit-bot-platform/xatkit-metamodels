@@ -12,7 +12,7 @@
 
     <artifactId>execution</artifactId>
 
-    <packaging>bundle</packaging>
+    <packaging>jar</packaging>
 
     <name>Xatkit execution model</name>
 
@@ -44,11 +44,6 @@
             <artifactId>org.eclipse.emf.ecore</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.eclipse.emf</groupId>
-            <artifactId>org.eclipse.emf.ecore.xcore.lib</artifactId>
-        </dependency>
-
         <!-- Tests -->
 
         <dependency>
@@ -60,69 +55,6 @@
 
     <build>
         <plugins>
-
-            <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <configuration>
-                    <instructions>
-                        <Bundle-SymbolicName>${project.groupId}.execution</Bundle-SymbolicName>
-                        <Export-Package>
-                            com.xatkit.execution.*
-                        </Export-Package>
-                        <Embed-Dependency><!-- Inherited -->
-                            *;
-                            scope=compile|runtime;
-                            type=!pom;
-                            groupId=!${project.groupId}|fr.inria.atlanmod.commons|org.apache.logging.log4j|org.eclipse.xtext;
-                            artifactId=!org.eclipse.emf.common|org.eclipse.emf.ecore
-                        </Embed-Dependency>
-                        <Require-Bundle>
-                            com.xatkit.intent;visibility:=reexport,
-                            org.eclipse.emf.ecore;visibility:=reexport,
-                            org.eclipse.xtext.xbase;visibility:=reexport
-                        </Require-Bundle>
-                    </instructions>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-clean-plugin</artifactId>
-                <configuration>
-                    <filesets>
-                        <fileset>
-                            <directory>${generated-sources.location}</directory>
-                        </fileset>
-                    </filesets>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.eclipse.xtext</groupId>
-                <artifactId>xtext-maven-plugin</artifactId>
-                <configuration>
-                    <languages>
-                        <language>
-                            <setup>org.eclipse.xtext.ecore.EcoreSupport</setup>
-                        </language>
-                        <language>
-                            <setup>org.eclipse.emf.codegen.ecore.xtext.GenModelSupport</setup>
-                        </language>
-                        <language>
-                            <setup>org.eclipse.emf.ecore.xcore.XcoreStandaloneSetup</setup>
-                            <outputConfigurations>
-                                <outputConfiguration>
-                                    <outputDirectory>${generated-sources.location}</outputDirectory>
-                                </outputConfiguration>
-                            </outputConfigurations>
-                        </language>
-                    </languages>
-                    <sourceRoots>
-                        <root>${models.location}</root>
-                    </sourceRoots>
-                </configuration>
-            </plugin>
 
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
