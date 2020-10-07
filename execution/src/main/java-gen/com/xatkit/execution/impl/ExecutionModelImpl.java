@@ -272,10 +272,7 @@ public class ExecutionModelImpl extends MinimalEObjectImpl.Container implements 
 		StreamSupport.stream(Spliterators.spliteratorUnknownSize(this.eAllContents(), Spliterator.ORDERED), false)
 			.filter(e -> e instanceof GuardedTransition)
 			.forEach(t -> {
-				EventDefinition eventDefinition = ((GuardedTransition) t).getAccessedEvent();
-				if(nonNull(eventDefinition)) {
-					result.add(eventDefinition);
-				}
+				result.addAll(((GuardedTransition) t).getAccessedEvents());
 			});
 		return result;
 	}

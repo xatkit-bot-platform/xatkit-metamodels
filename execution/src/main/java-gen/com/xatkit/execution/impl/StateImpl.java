@@ -209,10 +209,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 		for(Transition t : this.getTransitions()) {
 			if(t instanceof GuardedTransition) {
 				GuardedTransition guardedTransition = (GuardedTransition) t;
-				IntentDefinition intentDefinition = guardedTransition.getAccessedIntent();
-				if(nonNull(intentDefinition)) {
-					result.add(intentDefinition);
-				}
+				result.addAll(guardedTransition.getAccessedIntents());
 			}
 		}
 		return result;

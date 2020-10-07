@@ -2,6 +2,7 @@
  */
 package com.xatkit.execution;
 
+import java.util.Collection;
 import java.util.function.Predicate;
 
 import com.xatkit.intent.EventDefinition;
@@ -49,11 +50,11 @@ public interface GuardedTransition extends Transition {
 	/**
 	 * @NotGenerated
 	 */
-	EventDefinition getAccessedEvent();
+	Collection<EventDefinition> getAccessedEvents();
 	
 	/**
 	 * @NotGenerated
 	 */
-	IntentDefinition getAccessedIntent();
+	Collection<IntentDefinition> getAccessedIntents();
 	
 } // GuardedTransition
