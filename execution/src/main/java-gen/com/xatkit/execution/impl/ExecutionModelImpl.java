@@ -7,6 +7,7 @@ import com.xatkit.execution.ExecutionPackage;
 import com.xatkit.execution.GuardedTransition;
 import com.xatkit.execution.State;
 
+import com.xatkit.execution.Transition;
 import com.xatkit.intent.EventDefinition;
 
 import java.util.Collection;
@@ -262,7 +263,36 @@ public class ExecutionModelImpl extends MinimalEObjectImpl.Container implements 
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ExecutionPackage.EXECUTION_MODEL__DEFAULT_FALLBACK_STATE, oldDefaultFallbackState, defaultFallbackState));
 	}
-	
+
+	/**
+	 * @NotGenerated
+	 */
+	public void consolidate() {
+		if(nonNull(this.getInitState())) {
+			Collection<State> allAccessibleStates = getAllAccessibleStates(this.getInitState(), new HashSet<>());
+			this.getStates().addAll(allAccessibleStates);
+			for(State s : this.getStates()) {
+				this.getUsedEvents().addAll(s.getAllAccessedIntents());
+			}
+		}
+	}
+
+	/**
+	 * @NotGenerated
+	 * @param fromState
+	 * @param result
+	 * @return
+	 */
+	private Collection<State> getAllAccessibleStates(State fromState, Set<State> result) {
+		boolean added = result.add(fromState);
+		if(added) {
+			for(Transition t : fromState.getTransitions()) {
+				getAllAccessibleStates(t.getState(), result);
+			}
+		}
+		return result;
+	}
+
 	/**
 	 * @NotGenerated
 	 */

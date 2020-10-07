@@ -123,7 +123,12 @@ public interface ExecutionModel extends EObject {
 	 * @generated
 	 */
 	void setDefaultFallbackState(State value);
-	
+
+	/**
+	 * @NotGenerated
+	 */
+	void consolidate();
+
 	/**
 	 * @NotGenerated
 	 * @return
