@@ -122,7 +122,7 @@ public class StateContextImpl extends MinimalEObjectImpl.Container implements St
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @NotGenerated
 	 */
 	protected StateContextImpl() {
 		super();
