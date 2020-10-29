@@ -36,57 +36,56 @@ import java.util.stream.Collectors;
  */
 public class GuardedTransitionImpl extends TransitionImpl implements GuardedTransition {
     /**
-     * The cached value of the '{@link #getCondition() <em>Condition</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getCondition()
-     * @generated
-     * @ordered
-     */
+	 * @see #getCondition()
+	 * @generated
+	 * @ordered
+	 */
     protected Predicate<StateContext> condition;
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected GuardedTransitionImpl() {
-        super();
-    }
+		super();
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     protected EClass eStaticClass() {
-        return ExecutionPackage.Literals.GUARDED_TRANSITION;
-    }
+		return ExecutionPackage.Literals.GUARDED_TRANSITION;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public Predicate<StateContext> getCondition() {
-        return condition;
-    }
+		return condition;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public void setCondition(Predicate<StateContext> newCondition) {
-        Predicate<StateContext> oldCondition = condition;
-        condition = newCondition;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ExecutionPackage.GUARDED_TRANSITION__CONDITION,
-					oldCondition, condition));
-    }
+		Predicate<StateContext> oldCondition = condition;
+		condition = newCondition;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExecutionPackage.GUARDED_TRANSITION__CONDITION, oldCondition, condition));
+	}
 
     /**
      * @NotGenerated
@@ -127,78 +126,78 @@ public class GuardedTransitionImpl extends TransitionImpl implements GuardedTran
     }
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case ExecutionPackage.GUARDED_TRANSITION__CONDITION:
-                return getCondition();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case ExecutionPackage.GUARDED_TRANSITION__CONDITION:
+				return getCondition();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case ExecutionPackage.GUARDED_TRANSITION__CONDITION:
-                setCondition((Predicate<StateContext>) newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case ExecutionPackage.GUARDED_TRANSITION__CONDITION:
+				setCondition((Predicate<StateContext>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public void eUnset(int featureID) {
-        switch (featureID) {
-            case ExecutionPackage.GUARDED_TRANSITION__CONDITION:
-                setCondition((Predicate<StateContext>) null);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case ExecutionPackage.GUARDED_TRANSITION__CONDITION:
+				setCondition((Predicate<StateContext>)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case ExecutionPackage.GUARDED_TRANSITION__CONDITION:
-                return condition != null;
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case ExecutionPackage.GUARDED_TRANSITION__CONDITION:
+				return condition != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuilder result = new StringBuilder(super.toString());
-        result.append(" (condition: ");
-        result.append(condition);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (condition: ");
+		result.append(condition);
+		result.append(')');
+		return result.toString();
+	}
 
 } //GuardedTransitionImpl
