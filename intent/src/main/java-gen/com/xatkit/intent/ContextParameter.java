@@ -2,6 +2,7 @@
  */
 package com.xatkit.intent;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.xatkit.intent.ContextParameter#getName <em>Name</em>}</li>
- *   <li>{@link com.xatkit.intent.ContextParameter#getTextFragment <em>Text Fragment</em>}</li>
+ *   <li>{@link com.xatkit.intent.ContextParameter#getTextFragments <em>Text Fragments</em>}</li>
  *   <li>{@link com.xatkit.intent.ContextParameter#getEntity <em>Entity</em>}</li>
  * </ul>
  *
@@ -46,26 +47,16 @@ public interface ContextParameter extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Text Fragment</b></em>' attribute.
+	 * Returns the value of the '<em><b>Text Fragments</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Text Fragment</em>' attribute.
-	 * @see #setTextFragment(String)
-	 * @see com.xatkit.intent.IntentPackage#getContextParameter_TextFragment()
+	 * @return the value of the '<em>Text Fragments</em>' attribute list.
+	 * @see com.xatkit.intent.IntentPackage#getContextParameter_TextFragments()
 	 * @model unique="false"
 	 * @generated
 	 */
-	String getTextFragment();
-
-	/**
-	 * Sets the value of the '{@link com.xatkit.intent.ContextParameter#getTextFragment <em>Text Fragment</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Text Fragment</em>' attribute.
-	 * @see #getTextFragment()
-	 * @generated
-	 */
-	void setTextFragment(String value);
+	EList<String> getTextFragments();
 
 	/**
 	 * Returns the value of the '<em><b>Entity</b></em>' containment reference.

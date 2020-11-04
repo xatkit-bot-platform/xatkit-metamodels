@@ -21,7 +21,7 @@ class IntentDefinition extends EventDefinition {
 
 class ContextParameter {
     String name
-    String textFragment
+    String[] textFragments
     contains EntityDefinitionReference entity
 }
 

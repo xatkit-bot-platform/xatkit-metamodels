@@ -387,7 +387,7 @@ public class IntentPackageImpl extends EPackageImpl implements IntentPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getContextParameter_TextFragment() {
+	public EAttribute getContextParameter_TextFragments() {
 		return (EAttribute)contextParameterEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -854,7 +854,7 @@ public class IntentPackageImpl extends EPackageImpl implements IntentPackage {
 
 		contextParameterEClass = createEClass(CONTEXT_PARAMETER);
 		createEAttribute(contextParameterEClass, CONTEXT_PARAMETER__NAME);
-		createEAttribute(contextParameterEClass, CONTEXT_PARAMETER__TEXT_FRAGMENT);
+		createEAttribute(contextParameterEClass, CONTEXT_PARAMETER__TEXT_FRAGMENTS);
 		createEReference(contextParameterEClass, CONTEXT_PARAMETER__ENTITY);
 
 		eventInstanceEClass = createEClass(EVENT_INSTANCE);
@@ -976,7 +976,7 @@ public class IntentPackageImpl extends EPackageImpl implements IntentPackage {
 
 		initEClass(contextParameterEClass, ContextParameter.class, "ContextParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getContextParameter_Name(), theEcorePackage.getEString(), "name", null, 0, 1, ContextParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getContextParameter_TextFragment(), theEcorePackage.getEString(), "textFragment", null, 0, 1, ContextParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getContextParameter_TextFragments(), theEcorePackage.getEString(), "textFragments", null, 0, -1, ContextParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContextParameter_Entity(), this.getEntityDefinitionReference(), null, "entity", null, 0, 1, ContextParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eventInstanceEClass, EventInstance.class, "EventInstance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

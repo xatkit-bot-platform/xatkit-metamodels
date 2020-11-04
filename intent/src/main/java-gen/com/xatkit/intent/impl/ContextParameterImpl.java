@@ -6,14 +6,17 @@ import com.xatkit.intent.ContextParameter;
 import com.xatkit.intent.EntityDefinitionReference;
 import com.xatkit.intent.IntentPackage;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,7 +27,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link com.xatkit.intent.impl.ContextParameterImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.xatkit.intent.impl.ContextParameterImpl#getTextFragment <em>Text Fragment</em>}</li>
+ *   <li>{@link com.xatkit.intent.impl.ContextParameterImpl#getTextFragments <em>Text Fragments</em>}</li>
  *   <li>{@link com.xatkit.intent.impl.ContextParameterImpl#getEntity <em>Entity</em>}</li>
  * </ul>
  *
@@ -52,24 +55,14 @@ public class ContextParameterImpl extends MinimalEObjectImpl.Container implement
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTextFragment() <em>Text Fragment</em>}' attribute.
+	 * The cached value of the '{@link #getTextFragments() <em>Text Fragments</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTextFragment()
+	 * @see #getTextFragments()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TEXT_FRAGMENT_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getTextFragment() <em>Text Fragment</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTextFragment()
-	 * @generated
-	 * @ordered
-	 */
-	protected String textFragment = TEXT_FRAGMENT_EDEFAULT;
+	protected EList<String> textFragments;
 
 	/**
 	 * The cached value of the '{@link #getEntity() <em>Entity</em>}' containment reference.
@@ -129,21 +122,11 @@ public class ContextParameterImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 */
 	@Override
-	public String getTextFragment() {
-		return textFragment;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setTextFragment(String newTextFragment) {
-		String oldTextFragment = textFragment;
-		textFragment = newTextFragment;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, IntentPackage.CONTEXT_PARAMETER__TEXT_FRAGMENT, oldTextFragment, textFragment));
+	public EList<String> getTextFragments() {
+		if (textFragments == null) {
+			textFragments = new EDataTypeEList<String>(String.class, this, IntentPackage.CONTEXT_PARAMETER__TEXT_FRAGMENTS);
+		}
+		return textFragments;
 	}
 
 	/**
@@ -215,8 +198,8 @@ public class ContextParameterImpl extends MinimalEObjectImpl.Container implement
 		switch (featureID) {
 			case IntentPackage.CONTEXT_PARAMETER__NAME:
 				return getName();
-			case IntentPackage.CONTEXT_PARAMETER__TEXT_FRAGMENT:
-				return getTextFragment();
+			case IntentPackage.CONTEXT_PARAMETER__TEXT_FRAGMENTS:
+				return getTextFragments();
 			case IntentPackage.CONTEXT_PARAMETER__ENTITY:
 				return getEntity();
 		}
@@ -228,14 +211,16 @@ public class ContextParameterImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case IntentPackage.CONTEXT_PARAMETER__NAME:
 				setName((String)newValue);
 				return;
-			case IntentPackage.CONTEXT_PARAMETER__TEXT_FRAGMENT:
-				setTextFragment((String)newValue);
+			case IntentPackage.CONTEXT_PARAMETER__TEXT_FRAGMENTS:
+				getTextFragments().clear();
+				getTextFragments().addAll((Collection<? extends String>)newValue);
 				return;
 			case IntentPackage.CONTEXT_PARAMETER__ENTITY:
 				setEntity((EntityDefinitionReference)newValue);
@@ -255,8 +240,8 @@ public class ContextParameterImpl extends MinimalEObjectImpl.Container implement
 			case IntentPackage.CONTEXT_PARAMETER__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case IntentPackage.CONTEXT_PARAMETER__TEXT_FRAGMENT:
-				setTextFragment(TEXT_FRAGMENT_EDEFAULT);
+			case IntentPackage.CONTEXT_PARAMETER__TEXT_FRAGMENTS:
+				getTextFragments().clear();
 				return;
 			case IntentPackage.CONTEXT_PARAMETER__ENTITY:
 				setEntity((EntityDefinitionReference)null);
@@ -275,8 +260,8 @@ public class ContextParameterImpl extends MinimalEObjectImpl.Container implement
 		switch (featureID) {
 			case IntentPackage.CONTEXT_PARAMETER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case IntentPackage.CONTEXT_PARAMETER__TEXT_FRAGMENT:
-				return TEXT_FRAGMENT_EDEFAULT == null ? textFragment != null : !TEXT_FRAGMENT_EDEFAULT.equals(textFragment);
+			case IntentPackage.CONTEXT_PARAMETER__TEXT_FRAGMENTS:
+				return textFragments != null && !textFragments.isEmpty();
 			case IntentPackage.CONTEXT_PARAMETER__ENTITY:
 				return entity != null;
 		}
@@ -295,8 +280,8 @@ public class ContextParameterImpl extends MinimalEObjectImpl.Container implement
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", textFragment: ");
-		result.append(textFragment);
+		result.append(", textFragments: ");
+		result.append(textFragments);
 		result.append(')');
 		return result.toString();
 	}

@@ -235,13 +235,13 @@ public interface IntentPackage extends EPackage {
 	int CONTEXT_PARAMETER__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Text Fragment</b></em>' attribute.
+	 * The feature id for the '<em><b>Text Fragments</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEXT_PARAMETER__TEXT_FRAGMENT = 1;
+	int CONTEXT_PARAMETER__TEXT_FRAGMENTS = 1;
 
 	/**
 	 * The feature id for the '<em><b>Entity</b></em>' containment reference.
@@ -1173,15 +1173,15 @@ public interface IntentPackage extends EPackage {
 	EAttribute getContextParameter_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.xatkit.intent.ContextParameter#getTextFragment <em>Text Fragment</em>}'.
+	 * Returns the meta object for the attribute list '{@link com.xatkit.intent.ContextParameter#getTextFragments <em>Text Fragments</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Text Fragment</em>'.
-	 * @see com.xatkit.intent.ContextParameter#getTextFragment()
+	 * @return the meta object for the attribute list '<em>Text Fragments</em>'.
+	 * @see com.xatkit.intent.ContextParameter#getTextFragments()
 	 * @see #getContextParameter()
 	 * @generated
 	 */
-	EAttribute getContextParameter_TextFragment();
+	EAttribute getContextParameter_TextFragments();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link com.xatkit.intent.ContextParameter#getEntity <em>Entity</em>}'.
@@ -1746,12 +1746,12 @@ public interface IntentPackage extends EPackage {
 		EAttribute CONTEXT_PARAMETER__NAME = eINSTANCE.getContextParameter_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Text Fragment</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Text Fragments</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CONTEXT_PARAMETER__TEXT_FRAGMENT = eINSTANCE.getContextParameter_TextFragment();
+		EAttribute CONTEXT_PARAMETER__TEXT_FRAGMENTS = eINSTANCE.getContextParameter_TextFragments();
 
 		/**
 		 * The meta object literal for the '<em><b>Entity</b></em>' containment reference feature.
