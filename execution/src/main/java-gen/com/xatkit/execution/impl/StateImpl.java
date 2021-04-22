@@ -8,6 +8,7 @@ import com.xatkit.execution.GuardedTransition;
 import com.xatkit.execution.State;
 import com.xatkit.execution.StateContext;
 import com.xatkit.execution.Transition;
+import com.xatkit.intent.EventDefinition;
 import com.xatkit.intent.IntentDefinition;
 
 import java.util.ArrayList;
@@ -98,6 +99,8 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	 * @ordered
 	 */
 	protected EList<Transition> transitions;
+
+	private boolean useUnsafeTransitions = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -199,7 +202,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 		}
 		return transitions;
 	}
-	
+
 	/**
 	 * @NotGenerated
 	 */
@@ -214,7 +217,19 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 		}
 		return result;
 	}
-	
+
+	@Override
+	public Collection<EventDefinition> getAllAccessedEvents() {
+		List<EventDefinition> result = new ArrayList<>();
+		for(Transition t : this.getTransitions()) {
+			if(t instanceof GuardedTransition) {
+				GuardedTransition guardedTransition = (GuardedTransition) t;
+				result.addAll(guardedTransition.getAccessedEvents());
+			}
+		}
+		return result;
+	}
+
 	/**
 	 * @NotGenerated
 	 */
@@ -230,6 +245,16 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 			}
 		}
 		return result;
+	}
+
+	@Override
+	public void useUnsafeTransitions(boolean flag) {
+		this.useUnsafeTransitions = flag;
+	}
+
+	@Override
+	public boolean useUnsafeTransitions() {
+		return this.useUnsafeTransitions;
 	}
 
 	/**

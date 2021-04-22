@@ -5,6 +5,7 @@ package com.xatkit.execution;
 import java.util.Collection;
 import java.util.function.Consumer;
 
+import com.xatkit.intent.EventDefinition;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
@@ -107,16 +108,31 @@ public interface State extends EObject {
 	 * @generated
 	 */
 	EList<Transition> getTransitions();
-	
+
 	/**
 	 * @NotGenerated
 	 */
 	Collection<IntentDefinition> getAllAccessedIntents();
-	
+
+	/**
+	 * @NotGenerated
+	 */
+	Collection<EventDefinition> getAllAccessedEvents();
+
 	/**
 	 * @NotGenerated
 	 * @return
 	 */
 	State getStateReachableWithWildcard();
+
+	/**
+	 * @NotGenerated
+	 */
+	void useUnsafeTransitions(boolean flag);
+
+	/**
+	 * @NotGenerated
+	 */
+	boolean useUnsafeTransitions();
 
 } // State

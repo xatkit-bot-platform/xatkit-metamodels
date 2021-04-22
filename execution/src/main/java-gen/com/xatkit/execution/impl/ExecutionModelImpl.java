@@ -272,7 +272,7 @@ public class ExecutionModelImpl extends MinimalEObjectImpl.Container implements 
 			Collection<State> allAccessibleStates = getAllAccessibleStates(this.getInitState(), new HashSet<>());
 			this.getStates().addAll(allAccessibleStates);
 			for(State s : this.getStates()) {
-				this.getUsedEvents().addAll(s.getAllAccessedIntents());
+				this.getUsedEvents().addAll(s.getAllAccessedEvents());
 			}
 		}
 	}

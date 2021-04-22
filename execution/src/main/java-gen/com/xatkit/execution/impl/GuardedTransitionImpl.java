@@ -115,7 +115,7 @@ public class GuardedTransitionImpl extends TransitionImpl implements GuardedTran
         if (predicate instanceof IsEventDefinitionPredicate) {
             result.add(((IsEventDefinitionPredicate) predicate).getEventDefinition());
         } else if (predicate instanceof IsIntentDefinitionPredicate) {
-            result.add(((IsIntentDefinitionPredicate) predicate).getIntentDefinition());
+			result.add(((IsIntentDefinitionPredicate) predicate).getIntentDefinition());
         } else if (predicate instanceof ComposedPredicate) {
             ComposedPredicate<? super StateContext> composedPredicate =
                     (ComposedPredicate<? super StateContext>) predicate;
