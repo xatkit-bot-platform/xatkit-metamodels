@@ -521,6 +521,11 @@ public class IntentPackageImpl extends EPackageImpl implements IntentPackage {
 		return (EAttribute)contextParameterValueEClass.getEStructuralFeatures().get(1);
 	}
 
+	@Override
+	public EAttribute getContextParameterValue_Info() {
+		return (EAttribute)contextParameterValueEClass.getEStructuralFeatures().get(2);
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -871,6 +876,7 @@ public class IntentPackageImpl extends EPackageImpl implements IntentPackage {
 		contextParameterValueEClass = createEClass(CONTEXT_PARAMETER_VALUE);
 		createEReference(contextParameterValueEClass, CONTEXT_PARAMETER_VALUE__CONTEXT_PARAMETER);
 		createEAttribute(contextParameterValueEClass, CONTEXT_PARAMETER_VALUE__VALUE);
+		createEAttribute(contextParameterValueEClass, CONTEXT_PARAMETER_VALUE__INFO);
 
 		entityDefinitionReferenceEClass = createEClass(ENTITY_DEFINITION_REFERENCE);
 		createEOperation(entityDefinitionReferenceEClass, ENTITY_DEFINITION_REFERENCE___GET_REFERRED_ENTITY);
@@ -993,6 +999,7 @@ public class IntentPackageImpl extends EPackageImpl implements IntentPackage {
 		initEClass(contextParameterValueEClass, ContextParameterValue.class, "ContextParameterValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getContextParameterValue_ContextParameter(), this.getContextParameter(), null, "contextParameter", null, 0, 1, ContextParameterValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getContextParameterValue_Value(), theEcorePackage.getEJavaObject(), "value", null, 0, 1, ContextParameterValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getContextParameterValue_Info(), theEcorePackage.getEJavaObject(), "info", null, 0, 1, ContextParameterValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(entityDefinitionReferenceEClass, EntityDefinitionReference.class, "EntityDefinitionReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

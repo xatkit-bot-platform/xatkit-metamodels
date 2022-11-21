@@ -60,6 +60,26 @@ public class ContextParameterValueImpl extends MinimalEObjectImpl.Container impl
 	protected Object value = VALUE_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getInfo() <em>Info</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInfo()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Object INFO_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getInfo() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInfo()
+	 * @generated
+	 * @ordered
+	 */
+	protected Object info = INFO_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -147,6 +167,29 @@ public class ContextParameterValueImpl extends MinimalEObjectImpl.Container impl
 	 * @generated
 	 */
 	@Override
+	public Object getInfo() {
+		return info;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setInfo(Object newInfo) {
+		Object oldInfo = info;
+		info = newInfo;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, IntentPackage.CONTEXT_PARAMETER_VALUE__INFO, oldInfo, info));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case IntentPackage.CONTEXT_PARAMETER_VALUE__CONTEXT_PARAMETER:
@@ -154,6 +197,8 @@ public class ContextParameterValueImpl extends MinimalEObjectImpl.Container impl
 				return basicGetContextParameter();
 			case IntentPackage.CONTEXT_PARAMETER_VALUE__VALUE:
 				return getValue();
+			case IntentPackage.CONTEXT_PARAMETER_VALUE__INFO:
+				return getInfo();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -171,6 +216,9 @@ public class ContextParameterValueImpl extends MinimalEObjectImpl.Container impl
 				return;
 			case IntentPackage.CONTEXT_PARAMETER_VALUE__VALUE:
 				setValue(newValue);
+				return;
+			case IntentPackage.CONTEXT_PARAMETER_VALUE__INFO:
+				setInfo(newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -190,6 +238,9 @@ public class ContextParameterValueImpl extends MinimalEObjectImpl.Container impl
 			case IntentPackage.CONTEXT_PARAMETER_VALUE__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
+			case IntentPackage.CONTEXT_PARAMETER_VALUE__INFO:
+				setValue(INFO_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -206,6 +257,8 @@ public class ContextParameterValueImpl extends MinimalEObjectImpl.Container impl
 				return contextParameter != null;
 			case IntentPackage.CONTEXT_PARAMETER_VALUE__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+			case IntentPackage.CONTEXT_PARAMETER_VALUE__INFO:
+				return INFO_EDEFAULT == null ? info != null : !INFO_EDEFAULT.equals(info);
 		}
 		return super.eIsSet(featureID);
 	}
