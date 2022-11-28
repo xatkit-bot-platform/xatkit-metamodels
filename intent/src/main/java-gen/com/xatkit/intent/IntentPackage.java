@@ -454,15 +454,6 @@ public interface IntentPackage extends EPackage {
 	int CONTEXT_PARAMETER_VALUE__VALUE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Info</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTEXT_PARAMETER_VALUE__INFO = 2;
-
-	/**
 	 * The number of structural features of the '<em>Context Parameter Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1333,17 +1324,6 @@ public interface IntentPackage extends EPackage {
 	EAttribute getContextParameterValue_Value();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.xatkit.intent.ContextParameterValue#getInfo <em>Info</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Info</em>'.
-	 * @see com.xatkit.intent.ContextParameterValue#getInfo()
-	 * @see #getContextParameterValue()
-	 * @generated
-	 */
-	EAttribute getContextParameterValue_Info();
-
-	/**
 	 * Returns the meta object for class '{@link com.xatkit.intent.EntityDefinitionReference <em>Entity Definition Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1882,14 +1862,6 @@ public interface IntentPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CONTEXT_PARAMETER_VALUE__VALUE = eINSTANCE.getContextParameterValue_Value();
-
-		/**
-		 * The meta object literal for the '<em><b>Info</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONTEXT_PARAMETER_VALUE__INFO = eINSTANCE.getContextParameterValue_Info();
 
 		/**
 		 * The meta object literal for the '{@link com.xatkit.intent.impl.EntityDefinitionReferenceImpl <em>Entity Definition Reference</em>}' class.
