@@ -4,6 +4,8 @@ package com.xatkit.intent;
 
 import org.eclipse.emf.ecore.EObject;
 
+import java.util.Map;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Context Parameter Value</b></em>'.
@@ -65,5 +67,21 @@ public interface ContextParameterValue extends EObject {
 	 * @generated
 	 */
 	void setValue(Object value);
+
+	/**
+	 * Returns the value of the '<em><b>Info</b></em>' attribute.
+	 * @return the value of the '<em>Info</em>' attribute.
+	 * @see #setInfo(Map)
+	 * @NotGenerated
+	 */
+	Map<String, Object> getInfo();
+
+	/**
+	 * Sets the value of the '{@link com.xatkit.intent.ContextParameterValue#getInfo <em>Info</em>}' attribute.
+	 * @param value the new value of the '<em>Info</em>' attribute.
+	 * @see #getValue()
+	 * @NotGenerated
+	 */
+	void setInfo(Map<String, Object> value);
 
 } // ContextParameterValue

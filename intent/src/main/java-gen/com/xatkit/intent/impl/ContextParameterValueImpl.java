@@ -14,6 +14,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import java.util.Map;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Context Parameter Value</b></em>'.
@@ -58,6 +60,20 @@ public class ContextParameterValueImpl extends MinimalEObjectImpl.Container impl
 	 * @ordered
 	 */
 	protected Object value = VALUE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getInfo() <em>Info</em>}' attribute.
+	 * @see #getInfo()
+	 * @NotGenerated
+	 */
+	protected static final Map<String, Object> INFO_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getInfo() <em>Value</em>}' attribute.
+	 * @see #getInfo()
+	 * @NotGenerated
+	 */
+	protected Map<String, Object> info = INFO_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -139,6 +155,22 @@ public class ContextParameterValueImpl extends MinimalEObjectImpl.Container impl
 		value = newValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, IntentPackage.CONTEXT_PARAMETER_VALUE__VALUE, oldValue, value));
+	}
+
+	/**
+	 * @NotGenerated
+	 */
+	@Override
+	public Map<String, Object> getInfo() {
+		return info;
+	}
+
+	/**
+	 * @NotGenerated
+	 */
+	@Override
+	public void setInfo(Map<String, Object> newInfo) {
+		info = newInfo;
 	}
 
 	/**
